@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* Variables de color (Originales) */
+        /* Variables de color */
         :root {
-            --primary-red: #D50000; 
+            --primary-red: #D50000;
             --dark-navy: #1A237E;
             --background-light: #F5F5F5;
             --card-white: #FFFFFF;
-            --price-color: #D50000; /* Usaremos el rojo principal para el precio */
-            --mp-blue: #1877F2; /* Facebook Blue */
+            --price-color: #00A859; /* Verde para precio */
+            --mp-blue: #00A8E0; /* Azul de Mercado Pago */
             --text-dark: #333333;
         }
 
@@ -22,192 +22,157 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--background-light); padding: 40px 20px; }
         .container { max-width: 1100px; margin: 0 auto; background-color: var(--card-white); border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); padding: 30px; }
-        
-        /* HEADER */
-        .header { text-align: center; margin-bottom: 30px; }
-        .header h1 { color: var(--dark-navy); font-size: 2.2em; margin-bottom: 5px; }
-        .header p { color: var(--primary-red); font-weight: bold; font-size: 1.1em; }
 
-        /* DETALLES DEL PRODUCTO */
-        .product-details {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-bottom: 40px;
-        }
-        .image-section {
-            flex: 1 1 400px; /* Sección de imagen flexible */
-            text-align: center;
-        }
-        .main-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .info-section {
-            flex: 1 1 450px; /* Sección de información flexible */
-        }
-        .price {
-            /* PRECIO ACTUALIZADO A S/180 */
-            font-size: 2.5em;
-            color: var(--price-color);
-            font-weight: bold;
-            margin-bottom: 20px;
-            border-bottom: 2px solid var(--background-light);
-            padding-bottom: 10px;
-        }
-
-        /* LISTA DE CARACTERÍSTICAS */
-        .features-list {
-            list-style: none;
-            padding: 0;
-            margin-top: 20px;
-        }
-        .features-list li {
-            margin-bottom: 10px;
-            font-size: 1.1em;
-            color: var(--text-dark);
-        }
-        .features-list i {
-            color: var(--dark-navy);
-            margin-right: 10px;
-            width: 20px;
-            text-align: center;
-        }
-
-        /* BOTÓN DE COMPRA */
-        .btn-buy {
+        /* Estilos del Botón de Volver */
+        .btn-back {
             display: inline-block;
-            background-color: var(--primary-red);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 8px;
+            margin-bottom: 20px;
             text-decoration: none;
+            color: var(--dark-navy);
             font-weight: bold;
-            font-size: 1.2em;
-            margin-top: 25px;
-            transition: background-color 0.2s, transform 0.2s;
+            padding: 8px 15px;
+            border: 1px solid var(--dark-navy);
+            border-radius: 4px;
+            transition: background-color 0.2s;
         }
-        .btn-buy:hover { 
-            background-color: #A00000; 
+        .btn-back:hover {
+            background-color: var(--dark-navy);
+            color: var(--card-white);
+        }
+
+        /* Estilos del Producto */
+        .product-header { text-align: center; margin-bottom: 30px; }
+        .product-header h1 { color: var(--dark-navy); font-size: 2.5em; margin-bottom: 5px; border-bottom: 2px solid var(--primary-red); display: inline-block; padding-bottom: 5px; }
+        
+        /* Layout de dos columnas (Izquierda: Foto, Derecha: Precio/Descripción) */
+        .product-content { display: flex; gap: 30px; flex-wrap: wrap; }
+        .image-col { flex: 1; min-width: 300px; }
+        .details-col { flex: 1; min-width: 400px; }
+
+        /* Imagen */
+        .product-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); object-fit: cover; }
+        
+        /* Precio y Compra */
+        .price-box { margin: 0 0 25px 0; padding: 15px 20px; background-color: #E0E0E0; border-radius: 8px; text-align: center; }
+        .price-box p { font-size: 1.2em; font-weight: bold; color: var(--dark-navy); margin-bottom: 5px; }
+        .price-box .price { font-size: 3em; font-weight: 900; color: var(--primary-red); text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
+        .price-box .price span { font-size: 0.6em; color: var(--price-color); margin-left: 5px; }
+
+        /* Botón de Mercado Pago */
+        .btn-buy {
+            display: block;
+            width: 100%;
+            margin: 20px auto 0;
+            padding: 15px;
+            background-color: var(--mp-blue);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-buy:hover {
+            background-color: #008DBC;
             transform: translateY(-2px);
         }
 
-        /* INFORMACIÓN ADICIONAL DE LA TIENDA */
-        .store-info {
-            margin-top: 30px;
-            padding: 20px;
-            border-top: 1px solid #EEE;
-        }
-        .store-info h3 {
+        /* Lista de detalles */
+        .product-details { margin-top: 20px; }
+        .product-details h2 { color: var(--primary-red); font-size: 1.4em; margin-bottom: 10px; border-bottom: 1px solid #EEE; padding-bottom: 5px; }
+        .product-details ul { list-style: none; padding-left: 0; }
+        .product-details ul li { 
+            background: var(--background-light); 
+            padding: 10px; 
+            margin-bottom: 8px; 
+            border-left: 4px solid var(--primary-red); 
+            border-radius: 4px; 
+            font-size: 0.95em; 
             color: var(--dark-navy);
-            margin-bottom: 15px;
-            border-bottom: 2px solid var(--primary-red);
-            display: inline-block;
-            padding-bottom: 5px;
         }
-        .store-info p {
-            margin-bottom: 8px;
-            font-size: 0.95em;
-        }
-        .store-info i {
-            color: var(--primary-red);
-            margin-right: 8px;
-        }
-        
-        /* BOXES DE INFO */
-        .info-box {
-            padding: 15px;
-            border-radius: 6px;
-            margin-top: 15px;
-        }
-        .box-warning {
-            background-color: #FFF3E0; border: 1px solid #FFC107;
-        }
-        .box-success {
-            background-color: #E8F5E9; border: 1px solid #4CAF50;
+        .product-details ul li i { margin-right: 10px; color: var(--primary-red); }
+
+        /* Información de la Tienda y Pago */
+        .store-info { margin-top: 40px; padding-top: 20px; border-top: 1px solid #DDD; }
+        .store-info h3 { color: var(--dark-navy); font-size: 1.6em; margin-bottom: 15px; text-align: center; }
+        .store-info div { background-color: #E8EAF6; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .store-info p { margin-bottom: 5px; font-size: 0.9em; color: var(--dark-navy); }
+        .store-info p i { color: var(--primary-red); margin-right: 8px; }
+
+        /* Responsividad básica */
+        @media (max-width: 768px) {
+            .product-content { flex-direction: column; }
+            /* Se invierte el orden en móvil para que la imagen quede arriba del precio */
+            .details-col { order: 1; } 
+            .image-col { min-width: 100%; order: 0; }
+            .price-box { margin-top: 25px; }
         }
 
-        /* FOOTER */
-        .footer { 
-            background-color: var(--dark-navy); 
-            color: var(--card-white); 
-            text-align: center; 
-            padding: 20px 0; 
-            margin-top: 50px;
-        }
-        .footer p { margin-bottom: 5px; font-size: 0.9em; }
-
-        /* Responsividad */
-        @media (max-width: 800px) {
-            .product-details {
-                flex-direction: column;
-            }
-            .image-section {
-                flex: 1 1 100%;
-            }
-            .info-section {
-                flex: 1 1 100%;
-            }
-        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <div class="header">
-        <h1>Living Dead Dolls: Ghost Face (Edición Zombie)</h1>
-        <p>Figura Coleccionable de 10" - Mezco Toys</p>
+    <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver al Catálogo</a>
+
+    <div class="product-header">
+        <h1>LIVING DEAD DOLLS: GHOST FACE (EDICIÓN ZOMBIE)</h1>
     </div>
 
-    <div class="product-details">
+    <div class="product-content">
         
-        <div class="image-section">
-            <img src="https://i.ibb.co/B5MGcwBG/s-l1600-4.webp" alt="Muñeca Living Dead Dolls Ghost Face Zombie" class="main-image">
+        <div class="image-col">
+            <img src="https://i.ibb.co/B5MGcwBG/s-l1600-4.webp" alt="Muñeca Living Dead Dolls Ghost Face Zombie" class="product-image">
         </div>
 
-        <div class="info-section">
-            <p class="price">S/180</p>
+        <div class="details-col">
             
-            <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank" class="btn-buy">
-                <i class="fa-solid fa-cart-shopping"></i> Comprar Ahora
-            </a>
-
-            <div class="info-box box-warning">
-                <p><i class="fa-solid fa-triangle-exclamation"></i> **¡EDICIÓN LIMITADA!** Disponible solo por pedido o hasta agotar stock.</p>
+            <div class="price-box">
+                <p>PRECIO DE COLECCIÓN:</p>
+                <div class="price">S/180<span>Soles</span></div>
+                <a href="https://link.mercadopago.com.pe/mercadoservicio" target="_blank" class="btn-buy">
+                    <i class="fa-solid fa-cart-shopping"></i> COMPRAR CON MERCADO PAGO
+                </a>
+                <p style="font-size: 0.8em; margin-top: 10px; color: var(--mp-blue);">
+                    <i class="fa-solid fa-credit-card"></i> Pago Seguro / Pagos en cuotas disponibles.
+                </p>
+            </div>
+            
+            <div class="product-details">
+                <h2>DETALLES DEL PRODUCTO</h2>
+                <ul>
+                    <li><i class="fa-solid fa-mask"></i> **Personaje:** Ghost Face (Scream) en versión Zombie.</li>
+                    <li><i class="fa-solid fa-puzzle-piece"></i> **Fabricante:** Mezco Toys (LIVING DEAD DOLLS).</li>
+                    <li><i class="fa-solid fa-ruler-vertical"></i> **Tamaño:** 10 pulgadas (25.4 cm) de alto.</li>
+                    <li><i class="fa-solid fa-box"></i> **Condición:** Figura NUEVA y SELLADA en caja original.</li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> **Método de Pago:** Aceptamos todas las tarjetas.</li>
+                    <li><i class="fa-solid fa-skull"></i> Ideal para coleccionistas de Horror y Living Dead Dolls.</li>
+                </ul>
             </div>
 
-            <ul class="features-list">
-                <li><i class="fa-solid fa-mask"></i> **Personaje:** Ghost Face (Scream) en versión Zombie.</li>
-                <li><i class="fa-solid fa-puzzle-piece"></i> **Fabricante:** Mezco Toys (LIVING DEAD DOLLS).</li>
-                <li><i class="fa-solid fa-ruler-vertical"></i> **Tamaño:** 10 pulgadas (25.4 cm) de alto.</li>
-                <li><i class="fa-solid fa-box"></i> **Condición:** Figura NUEVA y SELLADA en caja original.</li>
-                <li><i class="fa-solid fa-hand-holding-dollar"></i> **Método de Pago:** Aceptamos todas las tarjetas.</li>
-            </ul>
-        </div>
+            <div class="store-info">
+                <h3>Información de la Tienda y Envíos</h3>
+                
+                <div style="background-color: #FFF3E0; border: 1px solid #FFC107;">
+                    <p><i class="fa-solid fa-building"></i> World Dolls E.I.R.L – Tienda Virtual Oficial</p>
+                    <p><i class="fa-solid fa-key"></i> RUC: 20602972594</p>
+                    <p><i class="fa-solid fa-truck-fast"></i> Envíos a todo el Perú por Shalom, Olva Courier o Urbano.</p>
+                </div>
+                
+                <div style="background-color: #E8F5E9; border: 1px solid #4CAF50;">
+                    <p><i class="fa-solid fa-money-check-dollar"></i> Pagos Aceptados: Tarjeta de crédito/débito, Yape, Plin y transferencia bancaria.</p>
+                    <p><i class="fa-solid fa-certificate"></i> Garantía: Producto nuevo y 100% original.</p>
+                </div>
 
-    </div>
+            </div>
 
-    <div class="store-info">
-        <h3>Información de la Tienda y Envíos</h3>
-        
-        <div class="info-box box-warning">
-            <p><i class="fa-solid fa-building"></i> **World Dolls E.I.R.L** – Tienda Virtual Oficial</p>
-            <p><i class="fa-solid fa-key"></i> RUC: 20602972594</p>
-            <p><i class="fa-solid fa-truck-fast"></i> **Envíos a todo el Perú** por Shalom, Olva Courier o Urbano.</p>
-        </div>
-        
-        <div class="info-box box-success">
-            <p><i class="fa-solid fa-money-check-dollar"></i> **Pagos Aceptados:** Tarjeta de crédito/débito, Yape, Plin y transferencia bancaria.</p>
-            <p><i class="fa-solid fa-shield-halved"></i> Producto 100% original garantizado.</p>
         </div>
     </div>
+    
 </div>
-
-<footer class="footer">
-    <p>World Dolls E.I.R.L. | RUC: 20602972594 | Todos los derechos reservados.</p>
-</footer>
 
 </body>
 </html>
