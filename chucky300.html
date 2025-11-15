@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chucky 65 cm con Caja S/300 | World Dolls E.I.R.L</title>
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?sz=256&domain_url=https%3A%2F%2Fwww.curseofchucky.com%2F">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -34,8 +35,8 @@
         /* Imagen */
         .product-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); object-fit: cover; }
         
-        /* Precio y Compra */
-        .price-box { margin: 25px 0; padding: 15px 20px; background-color: #E0E0E0; border-radius: 8px; text-align: center; }
+        /* Precio y Compra (Aseguramos que el margin sea solo en la parte inferior para que quede arriba del resto del contenido) */
+        .price-box { margin: 0 0 25px 0; padding: 15px 20px; background-color: #E0E0E0; border-radius: 8px; text-align: center; }
         .price-box p { font-size: 1.2em; font-weight: bold; color: var(--dark-navy); margin-bottom: 5px; }
         .price-box .price { font-size: 3em; font-weight: 900; color: var(--primary-red); text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
         .price-box .price span { font-size: 0.6em; color: var(--price-color); margin-left: 5px; }
@@ -44,7 +45,6 @@
         .btn-buy {
             display: block;
             width: 100%;
-            max-width: 350px;
             margin: 20px auto 0;
             padding: 15px;
             background-color: var(--mp-blue);
@@ -88,7 +88,7 @@
         /* Botón de Regreso al Catálogo */
         .btn-back {
             display: inline-block;
-            margin-top: 20px;
+            margin-bottom: 20px; /* Separación del header */
             color: var(--dark-navy);
             text-decoration: none;
             font-weight: bold;
@@ -99,8 +99,8 @@
         /* Responsividad básica */
         @media (max-width: 768px) {
             .product-content { flex-direction: column; }
-            .details-col { order: -1; }
-            .image-col { min-width: 100%; }
+            .details-col { order: 1; } /* Imagen primero, luego precio, luego detalles */
+            .image-col { min-width: 100%; order: 0; }
         }
 
     </style>
@@ -118,7 +118,10 @@
         
         <div class="image-col">
             <img src="https://scontent.ftcq1-1.fna.fbcdn.net/v/t39.30808-6/580062745_816462764347665_8845629530532792643_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=EuzYb-r59ywQ7kNvwEXjwEq&_nc_oc=AdkmNHcKTaQvH_bVbizhFNI-osGvo1F2dCljvq4NDf5upvYoO5sqp6YpWxVKDVFiVZY&_nc_zt=23&_nc_ht=scontent.ftcq1-1.fna&_nc_gid=_ktTpWAZNqfXReb-kOvz1Q&oh=00_Afg6IiC9RE-qXu-zkIw9dFR32R7iTRk3f3wbzk4gfOXv-Q&oe=691EBE7B" alt="Muñeco Chucky 65cm con caja" class="product-image">
+        </div>
 
+        <div class="details-col">
+            
             <div class="price-box">
                 <p>OFERTA EXCLUSIVA:</p>
                 <div class="price">S/300<span>Soles</span></div>
@@ -131,19 +134,16 @@
                     <i class="fa-solid fa-credit-card"></i> Pago Seguro / Pagos en cuotas disponibles.
                 </p>
             </div>
-        </div>
-
-        <div class="details-col">
             
             <div class="product-details">
                 <h2>DETALLES DEL PRODUCTO</h2>
                 <ul>
-                    <li><i class="fa-solid fa-warehouse"></i> **Figura nueva** de Chucky.</li>
-                    <li><i class="fa-solid fa-ruler-vertical"></i> **Tamaño:** 65 cm de altura.</li>
-                    <li><i class="fa-solid fa-box"></i> **Incluye caja original**, ideal para coleccionistas.</li>
-                    <li><i class="fa-solid fa-user-gear"></i> Cuerpo de **vinil articulado**.</li>
-                    <li><i class="fa-solid fa-volume-high"></i> **Incluye sonido** (frases clásicas del personaje).</li>
-                    <li><i class="fa-solid fa-heart"></i> **Ideal para coleccionistas** o fanáticos del terror.</li>
+                    <li><i class="fa-solid fa-warehouse"></i> Figura nueva de Chucky.</li>
+                    <li><i class="fa-solid fa-ruler-vertical"></i> Tamaño: 65 cm de altura.</li>
+                    <li><i class="fa-solid fa-box"></i> Incluye caja original, ideal para coleccionistas.</li>
+                    <li><i class="fa-solid fa-user-gear"></i> Cuerpo de vinil articulado.</li>
+                    <li><i class="fa-solid fa-volume-high"></i> Incluye sonido (frases clásicas del personaje).</li>
+                    <li><i class="fa-solid fa-heart"></i> Ideal para coleccionistas o fanáticos del terror.</li>
                 </ul>
             </div>
 
@@ -151,14 +151,14 @@
                 <h3>Información de la Tienda y Envíos</h3>
                 
                 <div style="background-color: #FFF3E0; border: 1px solid #FFC107;">
-                    <p><i class="fa-solid fa-building"></i> **World Dolls E.I.R.L** – Tienda Virtual Oficial</p>
+                    <p><i class="fa-solid fa-building"></i> World Dolls E.I.R.L – Tienda Virtual Oficial</p>
                     <p><i class="fa-solid fa-key"></i> RUC: 20602972594</p>
-                    <p><i class="fa-solid fa-truck-fast"></i> **Envíos a todo el Perú** por Shalom, Olva Courier o Urbano.</p>
+                    <p><i class="fa-solid fa-truck-fast"></i> Envíos a todo el Perú por Shalom, Olva Courier o Urbano.</p>
                 </div>
                 
                 <div style="background-color: #E8F5E9; border: 1px solid #4CAF50;">
-                    <p><i class="fa-solid fa-money-check-dollar"></i> **Pagos Aceptados:** Tarjeta de crédito/débito, Yape, Plin y transferencia bancaria.</p>
-                    <p><i class="fa-solid fa-certificate"></i> **Garantía:** Producto nuevo y 100% original.</p>
+                    <p><i class="fa-solid fa-money-check-dollar"></i> Pagos Aceptados: Tarjeta de crédito/débito, Yape, Plin y transferencia bancaria.</p>
+                    <p><i class="fa-solid fa-certificate"></i> Garantía: Producto nuevo y 100% original.</p>
                 </div>
 
             </div>
