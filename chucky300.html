@@ -16,12 +16,31 @@
             --card-white: #FFFFFF;
             --price-color: #00A859;
             --mp-blue: #00A8E0;
+            --facebook-blue: #1877F2; /* Nuevo: Color de Facebook */
+            --text-dark: #333333; /* Nuevo: Color para texto oscuro */
         }
 
         /* Estilos base */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { background-color: var(--background-light); padding: 40px 20px; }
         .container { max-width: 1100px; margin: 0 auto; background-color: var(--card-white); border-radius: 12px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); padding: 30px; }
+
+        /* Estilos del Botón de Volver */
+        .btn-back {
+            display: inline-block;
+            margin-bottom: 20px; /* Separación del header */
+            color: var(--dark-navy);
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 15px;
+            border: 1px solid var(--dark-navy);
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+        .btn-back:hover {
+            background-color: var(--dark-navy);
+            color: var(--card-white);
+        }
 
         /* Estilos del Producto */
         .product-header { text-align: center; margin-bottom: 30px; }
@@ -35,7 +54,7 @@
         /* Imagen */
         .product-image { width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); object-fit: cover; }
         
-        /* Precio y Compra (Aseguramos que el margin sea solo en la parte inferior para que quede arriba del resto del contenido) */
+        /* Precio y Compra */
         .price-box { margin: 0 0 25px 0; padding: 15px 20px; background-color: #E0E0E0; border-radius: 8px; text-align: center; }
         .price-box p { font-size: 1.2em; font-weight: bold; color: var(--dark-navy); margin-bottom: 5px; }
         .price-box .price { font-size: 3em; font-weight: 900; color: var(--primary-red); text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); }
@@ -63,6 +82,28 @@
             transform: translateY(-2px);
         }
 
+        /* Nuevo: Botón de Contacto (Facebook) */
+        .btn-contact {
+            display: block;
+            width: 100%;
+            margin: 10px auto 0; 
+            padding: 15px;
+            background-color: var(--facebook-blue); 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-contact:hover {
+            background-color: #1060D0; 
+            transform: translateY(-2px);
+        }
+
         /* Lista de detalles */
         .product-details { margin-top: 20px; }
         .product-details h2 { color: var(--primary-red); font-size: 1.4em; margin-bottom: 10px; border-bottom: 1px solid #EEE; padding-bottom: 5px; }
@@ -85,22 +126,40 @@
         .store-info p { margin-bottom: 5px; font-size: 0.9em; color: var(--dark-navy); }
         .store-info p i { color: var(--primary-red); margin-right: 8px; }
 
-        /* Botón de Regreso al Catálogo */
-        .btn-back {
-            display: inline-block;
-            margin-bottom: 20px; /* Separación del header */
-            color: var(--dark-navy);
-            text-decoration: none;
-            font-weight: bold;
-            border-bottom: 2px solid var(--dark-navy);
-            padding-bottom: 3px;
+        /* NUEVO: QUIENES SOMOS */
+        .about-us {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: #E3F2FD; /* Azul claro, limpio */
+            border: 2px solid var(--dark-navy);
+            border-radius: 8px;
+            text-align: center;
         }
-
+        .about-us h2 {
+            color: var(--dark-navy);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .about-us h2 i {
+            color: var(--primary-red);
+            margin-right: 10px;
+        }
+        .about-us p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+        
         /* Responsividad básica */
         @media (max-width: 768px) {
             .product-content { flex-direction: column; }
-            .details-col { order: 1; } /* Imagen primero, luego precio, luego detalles */
+            .details-col { order: 1; } 
             .image-col { min-width: 100%; order: 0; }
+            .price-box { margin-top: 25px; }
         }
 
     </style>
@@ -127,22 +186,26 @@
                 <div class="price">S/300<span>Soles</span></div>
                 
                 <a href="https://link.mercadopago.com.pe/mercadoservicio" target="_blank" class="btn-buy">
-                    <i class="fa-solid fa-cart-shopping"></i> COMPRAR CON MERCADO PAGO
+                    <i class="fa-solid fa-credit-card"></i> COMPRAR CON MERCADO PAGO
+                </a>
+
+                <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank" class="btn-contact">
+                    <i class="fa-brands fa-facebook"></i> CONTACTAR PARA ENVÍO/DIRECCIÓN
                 </a>
                 
                 <p style="font-size: 0.8em; margin-top: 10px; color: var(--mp-blue);">
-                    <i class="fa-solid fa-credit-card"></i> Pago Seguro / Pagos en cuotas disponibles.
+                    <i class="fa-solid fa-shield-halved"></i> Proceso de pago seguro y cuotas disponibles.
                 </p>
             </div>
             
             <div class="product-details">
                 <h2>DETALLES DEL PRODUCTO</h2>
                 <ul>
-                    <li><i class="fa-solid fa-warehouse"></i> Figura nueva de Chucky.</li>
-                    <li><i class="fa-solid fa-ruler-vertical"></i> Tamaño: 65 cm de altura.</li>
-                    <li><i class="fa-solid fa-box"></i> Incluye caja original, ideal para coleccionistas.</li>
-                    <li><i class="fa-solid fa-user-gear"></i> Cuerpo de vinil articulado.</li>
-                    <li><i class="fa-solid fa-volume-high"></i> Incluye sonido (frases clásicas del personaje).</li>
+                    <li><i class="fa-solid fa-warehouse"></i> <b>Condición:</b> Figura nueva de Chucky.</li>
+                    <li><i class="fa-solid fa-ruler-vertical"></i> <b>Tamaño:</b> 65 cm de altura.</li>
+                    <li><i class="fa-solid fa-box"></i> <b>Caja:</b> Incluye caja original, ideal para coleccionistas.</li>
+                    <li><i class="fa-solid fa-user-gear"></i> <b>Articulación:</b> Cuerpo de vinil articulado.</li>
+                    <li><i class="fa-solid fa-volume-high"></i> <b>Audio:</b> Incluye sonido (frases clásicas del personaje).</li>
                     <li><i class="fa-solid fa-heart"></i> Ideal para coleccionistas o fanáticos del terror.</li>
                 </ul>
             </div>
@@ -166,7 +229,12 @@
         </div>
     </div>
     
-</div>
+    <div class="about-us">
+        <h2><i class="fa-solid fa-gem"></i> ¿Quiénes Somos? World Dolls E.I.R.L.</h2>
+        <p>En <b>World Dolls E.I.R.L.</b>, somos coleccionistas apasionados y dedicados a traer a Perú las figuras de horror más icónicas y difíciles de encontrar, como Chucky, Annabelle y Living Dead Dolls.</p>
+        <p>Nuestra misión es garantizar que recibas productos <b>100% originales</b> y sellados, directamente importados de fabricantes premium. Respaldados por nuestro RUC <b>20602972594</b>, ofrecemos una compra transparente, segura y con envío garantizado a nivel nacional. ¡Tu colección, nuestra prioridad!</p>
+    </div>
+    </div>
 
 </body>
 </html>
