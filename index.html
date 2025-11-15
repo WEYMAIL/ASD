@@ -24,9 +24,23 @@
         .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
         /* === 1. HEADER Y BANNER PRINCIPAL === */
-        .header { background-color: var(--dark-navy); color: var(--card-white); padding: 50px 0; text-align: center; margin-bottom: 30px; }
+        /* Padding ajustado para un encabezado compacto (30px 0) */
+        .header { background-color: var(--dark-navy); color: var(--card-white); padding: 30px 0; text-align: center; margin-bottom: 30px; }
         .header h1 { font-size: 3em; margin-bottom: 10px; border-bottom: 3px solid var(--primary-red); display: inline-block; padding-bottom: 5px; }
         .header p { font-size: 1.3em; font-weight: 300; }
+        
+        /* Estilos del logo de Facebook */
+        .facebook-link {
+            display: block;
+            margin-bottom: 15px; /* Espacio entre el logo y el título H1 */
+        }
+        .facebook-logo {
+            width: 50px; /* Tamaño del logo */
+            height: 50px;
+            border-radius: 50%; 
+            background-color: var(--card-white);
+            object-fit: cover;
+        }
         
         /* === 2. INFORMACIÓN DE LA EMPRESA Y VALORES === */
         .company-info { text-align: center; margin-bottom: 40px; }
@@ -111,6 +125,9 @@
 
 <div class="header">
     <div class="container">
+        <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank" class="facebook-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook World Dolls E.I.R.L" class="facebook-logo">
+        </a>
         <h1>WORLD DOLLS E.I.R.L</h1>
         <p>Muñecos Coleccionables Importados - La Calidad que Buscas, 100% Original.</p>
     </div>
@@ -180,6 +197,7 @@
                     </a>
                 </div>
             </div>
+
             <div class="product-card">
                 <img src="https://scontent.ftcq1-1.fna.fbcdn.net/v/t39.30808-6/581795992_816460671014541_7608502972462487237_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=CIqAYLzLjboQ7kNvwHvSOEo&_nc_oc=AdmKaOzljYmopd3urDmtCJfXZKqiUHY0rfyIIdbfo84KcGnnF7hLuTe1oUSSTApKnA&_nc_zt=23&_nc_ht=scontent.ftcq1-1.fna&_nc_gid=mRM27yHXBKf15sp8Qwo8Vg&oh=00_Afg6xBMhyO3TgEaYYy7_rtZY3qtIuiNKF_hDy9JLKJgKyg&oe=691EC679" alt="Muñeco Chucky I Can Talk">
                 <div class="product-info">
