@@ -15,6 +15,7 @@
             --card-white: #FFFFFF;
             --price-color: #00A859; /* Verde para precio */
             --mp-blue: #00A8E0; /* Azul de Mercado Pago */
+            --facebook-blue: #1877F2; /* Color de Facebook para Contacto */
             --text-dark: #333333;
         }
 
@@ -80,6 +81,29 @@
             transform: translateY(-2px);
         }
 
+        /* Botón de Contacto (Facebook) */
+        .btn-contact {
+            display: block;
+            width: 100%;
+            margin: 10px auto 0; 
+            padding: 15px;
+            background-color: var(--facebook-blue); 
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.2s, transform 0.2s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .btn-contact:hover {
+            background-color: #1060D0; 
+            transform: translateY(-2px);
+        }
+
+
         /* Lista de detalles */
         .product-details { margin-top: 20px; }
         .product-details h2 { color: var(--primary-red); font-size: 1.4em; margin-bottom: 10px; border-bottom: 1px solid #EEE; padding-bottom: 5px; }
@@ -101,11 +125,39 @@
         .store-info div { background-color: #E8EAF6; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
         .store-info p { margin-bottom: 5px; font-size: 0.9em; color: var(--dark-navy); }
         .store-info p i { color: var(--primary-red); margin-right: 8px; }
+        
+        /* NUEVO: QUIENES SOMOS */
+        .about-us {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: #E3F2FD; /* Azul claro, limpio */
+            border: 2px solid var(--dark-navy);
+            border-radius: 8px;
+            text-align: center;
+        }
+        .about-us h2 {
+            color: var(--dark-navy);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .about-us h2 i {
+            color: var(--primary-red);
+            margin-right: 10px;
+        }
+        .about-us p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--text-dark);
+        }
+
 
         /* Responsividad básica */
         @media (max-width: 768px) {
             .product-content { flex-direction: column; }
-            /* Se invierte el orden en móvil para que la imagen quede arriba del precio */
             .details-col { order: 1; } 
             .image-col { min-width: 100%; order: 0; }
             .price-box { margin-top: 25px; }
@@ -133,22 +185,28 @@
             <div class="price-box">
                 <p>PRECIO DE COLECCIÓN:</p>
                 <div class="price">S/180<span>Soles</span></div>
+                
                 <a href="https://link.mercadopago.com.pe/mercadoservicio" target="_blank" class="btn-buy">
-                    <i class="fa-solid fa-cart-shopping"></i> COMPRAR CON MERCADO PAGO
+                    <i class="fa-solid fa-credit-card"></i> COMPRAR CON MERCADO PAGO
                 </a>
+
+                <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank" class="btn-contact">
+                    <i class="fa-brands fa-facebook"></i> CONTACTAR PARA ENVÍO/DIRECCIÓN
+                </a>
+                
                 <p style="font-size: 0.8em; margin-top: 10px; color: var(--mp-blue);">
-                    <i class="fa-solid fa-credit-card"></i> Pago Seguro / Pagos en cuotas disponibles.
+                    <i class="fa-solid fa-shield-halved"></i> Proceso de pago seguro y cuotas disponibles.
                 </p>
             </div>
             
             <div class="product-details">
                 <h2>DETALLES DEL PRODUCTO</h2>
                 <ul>
-                    <li><i class="fa-solid fa-mask"></i> **Personaje:** Ghost Face (Scream) en versión Zombie.</li>
-                    <li><i class="fa-solid fa-puzzle-piece"></i> **Fabricante:** Mezco Toys (LIVING DEAD DOLLS).</li>
-                    <li><i class="fa-solid fa-ruler-vertical"></i> **Tamaño:** 10 pulgadas (25.4 cm) de alto.</li>
-                    <li><i class="fa-solid fa-box"></i> **Condición:** Figura NUEVA y SELLADA en caja original.</li>
-                    <li><i class="fa-solid fa-hand-holding-dollar"></i> **Método de Pago:** Aceptamos todas las tarjetas.</li>
+                    <li><i class="fa-solid fa-mask"></i> <b>Personaje:</b> Ghost Face (Scream) en versión Zombie.</li>
+                    <li><i class="fa-solid fa-puzzle-piece"></i> <b>Fabricante:</b> Mezco Toys (LIVING DEAD DOLLS).</li>
+                    <li><i class="fa-solid fa-ruler-vertical"></i> <b>Tamaño:</b> 10 pulgadas (25.4 cm) de alto.</li>
+                    <li><i class="fa-solid fa-box"></i> <b>Condición:</b> Figura NUEVA y SELLADA en caja original.</li>
+                    <li><i class="fa-solid fa-hand-holding-dollar"></i> <b>Método de Pago:</b> Aceptamos todas las tarjetas.</li>
                     <li><i class="fa-solid fa-skull"></i> Ideal para coleccionistas de Horror y Living Dead Dolls.</li>
                 </ul>
             </div>
@@ -171,8 +229,13 @@
 
         </div>
     </div>
-    
-</div>
+
+    <div class="about-us">
+        <h2><i class="fa-solid fa-gem"></i> ¿Quiénes Somos? World Dolls E.I.R.L.</h2>
+        <p>En <b>World Dolls E.I.R.L.</b>, somos coleccionistas apasionados y dedicados a traer a Perú las figuras de horror más icónicas y difíciles de encontrar, como Chucky, Annabelle y Living Dead Dolls.</p>
+        <p>Nuestra misión es garantizar que recibas productos <b>100% originales</b> y sellados, directamente importados de fabricantes premium. Respaldados por nuestro RUC <b>20602972594</b>, ofrecemos una compra transparente, segura y con envío garantizado a nivel nacional. ¡Tu colección, nuestra prioridad!</p>
+    </div>
+    </div>
 
 </body>
 </html>
