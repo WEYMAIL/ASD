@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="title">Ultimate Chucky Doll 1:1 - WORLD DOLLS .lat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos CSS (Sin cambios, solo se actualiza el HTML y el Script) */
+        :root {
+            --bg-general: #111111;
+            --bg-card: #000000;
+            --text-white: #ffffff;
+            --text-light-gray: #aaaaaa;
+            --text-price: #cccccc;
+            --button-bg: #222222;
+            --button-hover: #333333;
+            --accent-border: #333333;
+            --success-color: #5cb85c;
+            --facebook-color: #3b5998;
+            --lang-selector-bg: #0d0d0d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+        
+        body {
+            background-color: var(--bg-general);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        /* HEADER y Navegación (Se mantiene el estilo del index) */
+        header {
+            background-color: var(--bg-card);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid var(--accent-border);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--text-white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        header nav a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+        header nav a:hover {
+            color: var(--text-white);
+        }
+        
+        /* LANGUAGE SELECTOR */
+        .language-selector {
+            background-color: var(--lang-selector-bg);
+            padding: 5px 15px;
+            border-radius: 4px;
+            border: 1px solid var(--accent-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .language-selector label {
+            font-size: 0.9rem;
+            color: var(--text-light-gray);
+        }
+        .language-selector select {
+            background-color: var(--button-bg);
+            color: var(--text-white);
+            border: 1px solid #444;
+            padding: 5px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        /* PRODUCT DETAIL SECTION */
+        .product-detail {
+            padding: 4rem 0;
+        }
+
+        .product-content {
+            display: flex;
+            gap: 4rem;
+        }
+
+        /* GALERÍA */
+        .product-gallery {
+            display: flex;
+            gap: 1.5rem;
+            max-width: 60%; 
+        }
+
+        .thumbnails {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 80px; 
+        }
+
+        .thumbnail-img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: border 0.2s;
+            border-radius: 4px;
+            background-color: var(--bg-card); 
+        }
+
+        .thumbnail-img:hover, .thumbnail-img.active {
+            border-color: var(--success-color); 
+        }
+
+        .main-image-container {
+            flex-grow: 1;
+            background-color: var(--bg-card); 
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            height: fit-content;
+        }
+
+        #main-product-image {
+            width: 100%;
+            height: auto;
+            max-height: 600px; 
+            object-fit: contain; 
+            display: block;
+        }
+
+        /* DETALLES DEL PRODUCTO */
+        .product-info {
+            flex-grow: 1;
+            max-width: 40%;
+            display: flex; 
+            flex-direction: column;
+        }
+        
+        .product-info h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-white);
+        }
+        
+        .product-info .sku {
+            color: var(--text-light-gray);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-section {
+            margin-bottom: 1rem;
+            border-top: 1px solid #222; 
+            padding: 1rem 0 0.5rem;
+        }
+
+        .price {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--text-price);
+        }
+
+        /* Bloque de información limpia y organizada */
+        .purchase-info-block {
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #222;
+        }
+
+        .purchase-info-block p, .purchase-info-block strong {
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            color: var(--text-light-gray);
+        }
+        
+        .purchase-info-block strong {
+            color: var(--success-color);
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .warning-note {
+            color: #cc6666;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+
+        .description p {
+            margin-bottom: 1.5rem;
+            color: var(--text-light-gray);
+        }
+        
+        .contact-btn {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid var(--accent-border);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-align: center;
+            transition: background-color 0.3s, border-color 0.3s;
+            cursor: pointer; 
+        }
+
+        /* Estilo para el botón de contacto (Facebook) */
+        .facebook-btn {
+            background-color: var(--facebook-color);
+            border-color: #2c4270;
+            margin-top: 2rem;
+            color: var(--text-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .facebook-btn:hover {
+            background-color: #4c69b2;
+            border-color: #2c4270;
+        }
+        .facebook-btn i {
+            margin-right: 10px;
+        }
+        
+        /* --- ESTILOS DE TABS (PESTAÑAS) --- */
+        .product-sections {
+            margin-top: 4rem;
+            border-top: 1px solid #222;
+            padding-top: 2rem;
+        }
+        .sections-tabs {
+            display: flex;
+            border-bottom: 2px solid #333;
+            margin-bottom: 1.5rem;
+        }
+        .tab-button {
+            background: none;
+            border: none;
+            color: var(--text-light-gray);
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: color 0.3s, border-bottom 0.3s;
+            margin-bottom: -2px; 
+        }
+        .tab-button:hover {
+            color: var(--text-white);
+        }
+        .tab-button.active {
+            color: var(--success-color);
+            border-bottom: 2px solid var(--success-color);
+        }
+
+        .tab-content {
+            background-color: var(--bg-card);
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid #222;
+        }
+        .tab-content p {
+            color: var(--text-light-gray);
+        }
+
+        .spec-list {
+            list-style: none;
+            padding: 0;
+        }
+        .spec-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dashed #222;
+        }
+        .spec-list li:last-child {
+            border-bottom: none;
+        }
+        .spec-label {
+            font-weight: bold;
+            color: var(--text-white);
+        }
+        .spec-value {
+            color: var(--text-light-gray);
+        }
+        
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-card);
+            padding: 2rem 0;
+            border-top: 1px solid var(--accent-border);
+            margin-top: 40px;
+            color: var(--text-light-gray);
+            text-align: center;
+        }
+        footer a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        footer a:hover {
+            color: var(--text-white);
+        }
+
+
+        /* MEDIA QUERIES */
+        @media (max-width: 1024px) {
+            .product-content {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            .product-gallery, .product-info {
+                max-width: 100%;
+            }
+            .product-gallery {
+                flex-direction: column-reverse; 
+            }
+            .thumbnails {
+                flex-direction: row;
+                width: 100%;
+                overflow-x: auto;
+            }
+            .thumbnail-img {
+                flex-shrink: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="/index.html" class="logo">WORLD DOLLS<span>.lat</span></a>
+                <nav>
+                    <ul>
+                        <li><a href="/index.html" data-lang="nav_home">Home</a></li>
+                        <li><a href="/index.html#products" data-lang="nav_shop">Shop</a></li>
+                        <li><a href="#" data-lang="nav_contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="language-selector">
+                    <label data-lang="select_language_label">Language:</label>
+                    <select id="language-switcher">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Português</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="product-detail">
+        <div class="container">
+            <div class="product-content">
+                
+                <div class="product-gallery">
+                    <div class="thumbnails">
+                        <img src="/Trick2Ultimate/61BHeuKszcL._AC_SL1400_.jpg" class="thumbnail-img active" data-full-img="/Trick2Ultimate/61BHeuKszcL._AC_SL1400_.jpg" alt="Chucky Doll Side View">
+                        <img src="/Trick2Ultimate/61iK035QSLL._AC_SL1400_.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/61iK035QSLL._AC_SL1400_.jpg" alt="Chucky Doll Box">
+                        <img src="/Trick2Ultimate/61L1yVL7yhL._AC_SL1400_.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/61L1yVL7yhL._AC_SL1400_.jpg" alt="Chucky Doll Face Detail">
+                        <img src="/Trick2Ultimate/61uYU3NMADL.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/61uYU3NMADL.jpg" alt="Chucky Doll Full Shot">
+                        <img src="/Trick2Ultimate/717nO4xVh6L._AC_SL1400_.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/717nO4xVh6L._AC_SL1400_.jpg" alt="Chucky Doll Knife Detail">
+                        <img src="/Trick2Ultimate/717nO4xVh6L._AC_SL1400_.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/717nO4xVh6L._AC_SL1400_.jpg" alt="Chucky Doll Rear View">
+                        <img src="/Trick2Ultimate/815F2q-85AL._AC_SL1400_.jpg" class="thumbnail-img" data-full-img="/Trick2Ultimate/815F2q-85AL._AC_SL1400_.jpg" alt="Chucky Doll Packaging">
+                        </div>
+
+                    <div class="main-image-container">
+                        <img id="main-product-image" src="/Trick2Ultimate/61BHeuKszcL._AC_SL1400_.jpg" alt="Ultimate Chucky Doll 1:1 Life Size Replica">
+                    </div>
+                </div>
+                
+                <div class="product-info">
+                    <p class="sku">Trick or Treat Studios Product Code: CP2-100</p>
+                    <h1 data-lang="product_title">Ultimate Chucky Doll 1:1 Life Size</h1>
+                    
+                    <div class="price-section">
+                        <div class="price">
+                            $799.99 USD
+                        </div>
+                    </div>
+                    
+                    <div class="purchase-info-block">
+                        <strong data-lang="stock_status">IN-STOCK - Ready to Ship Worldwide</strong>
+                        <p data-lang="shipping_query_text">
+                            Shipping not included in the price. Consult shipping to your country on our Facebook page.
+                        </p>
+                        <p data-lang="processing_time">
+                            Order processing time: 5-10 business days.
+                        </p>
+                        
+                        <p class="warning-note" data-lang="final_sales_warning">
+                            ⚠️ ALL SALES ARE FINAL. Taxes, duties, and customs fees are collected upon delivery in your country.
+                        </p>
+                    </div>
+
+                    <div class="description">
+                        <p data-lang="description_p1">This is the definitive, screen-accurate, 1:1 scale replica of the Chucky doll from Child's Play 2, officially licensed by Universal Studios and meticulously crafted by Trick or Treat Studios.</p>
+                        <p data-lang="description_p2">The doll features a detailed foam body over a durable aluminum frame, allowing for highly realistic posing. It comes dressed in the Good Guys overalls and shirt, complete with interchangeable head sculpts (default smile, alternate menacing look) and a plastic "knife" accessory.</p>
+                    </div>
+
+                    <p style="text-align: center; margin-bottom: 1rem; color: var(--text-white); font-weight: bold;" data-lang="contact_prompt">
+                        To place an order or for any inquiries, send us a message:
+                    </p>
+                    <a href="https://www.facebook.com/tupagina/" target="_blank" rel="noopener noreferrer" class="contact-btn facebook-btn">
+                        <i class="fab fa-facebook-f"></i> <span data-lang="contact_button_text">MESSAGE WORLD DOLLS .lat</span>
+                    </a>
+                    
+                    <p style="font-size: 0.8rem; color: #888; text-align: center; margin-top: 1rem;" data-lang="contact_note">
+                        (You will be provided with payment and wire transfer instructions once you contact us).
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="product-sections">
+                <div class="sections-tabs">
+                    <button class="tab-button active" data-tab="details" data-lang="tab_details">Details</button>
+                    <button class="tab-button" data-tab="specs" data-lang="tab_specs">Specifications</button>
+                    <button class="tab-button" data-tab="reviews" data-lang="tab_reviews">Reviews</button>
+                </div>
+
+                <div id="tab-details" class="tab-content">
+                    <p data-lang="tab_details_content">Designed and sculpted by the renowned Tony Gardner (Alterian Inc.), this Chucky doll represents the pinnacle of collectible replicas. Every stitch of the clothing and every strand of hair has been replicated from the original screen-used puppet. A must-have for the serious horror collector.</p>
+                </div>
+                
+                <div id="tab-specs" class="tab-content" style="display: none;">
+                    <ul class="spec-list">
+                        <li><span class="spec-label" data-lang="spec_manufacturer">Manufacturer</span> <span class="spec-value">Trick or Treat Studios</span></li>
+                        <li><span class="spec-label" data-lang="spec_scale">Scale</span> <span class="spec-value">1:1 Life Size</span></li>
+                        <li><span class="spec-label" data-lang="spec_height">Height</span> <span class="spec-value">Approx. 30 inches (76 cm)</span></li>
+                        <li><span class="spec-label" data-lang="spec_materials">Materials</span> <span class="spec-value">Foam over Aluminum Frame, Synthetic Hair, Fabric Clothes</span></li>
+                        <li><span class="spec-label" data-lang="spec_features">Features</span> <span class="spec-value">Articulated joints, Interchangeable Head, Display Stand included</span></li>
+                    </ul>
+                </div>
+
+                <div id="tab-reviews" class="tab-content" style="display: none;">
+                    <p style="color: var(--text-price);" data-lang="tab_reviews_content">No customer reviews yet. Be the first!</p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 WORLD DOLLS .lat. | <a href="/index.html" data-lang="footer_return_home">Return to Home Page</a></p>
+        </div>
+    </footer>
+    
+    <script>
+        // --- 1. DATOS DE TRADUCCIÓN - TEXTOS LIMPIOS SIN COMILLAS NI ASTERISCOS ---
+        const translations = {
+            'en': {
+                'title': 'Ultimate Chucky Doll 1:1 - WORLD DOLLS .lat',
+                'select_language_label': 'Language:',
+                'nav_home': 'Home',
+                'nav_shop': 'Shop',
+                'nav_contact': 'Contact',
+                'product_title': 'Ultimate Chucky Doll 1:1 Life Size',
+                'stock_status': 'IN-STOCK - Ready to Ship Worldwide',
+                'shipping_query_text': 'Shipping not included in the price. Consult shipping to your country on our Facebook page.',
+                'processing_time': 'Order processing time: 5-10 business days.',
+                'final_sales_warning': '⚠️ ALL SALES ARE FINAL. Taxes, duties, and customs fees are collected upon delivery in your country.',
+                'description_p1': 'This is the definitive, screen-accurate, 1:1 scale replica of the Chucky doll from Child\'s Play 2, officially licensed by Universal Studios and meticulously crafted by Trick or Treat Studios.',
+                'description_p2': 'The doll features a detailed foam body over a durable aluminum frame, allowing for highly realistic posing. It comes dressed in the Good Guys overalls and shirt, complete with interchangeable head sculpts (default smile, alternate menacing look) and a plastic "knife" accessory.',
+                'contact_prompt': 'To place an order or for any inquiries, send us a message:',
+                'contact_button_text': 'MESSAGE WORLD DOLLS .lat',
+                'contact_note': '(You will be provided with payment and wire transfer instructions once you contact us).',
+                'tab_details': 'Details',
+                'tab_specs': 'Specifications',
+                'tab_reviews': 'Reviews',
+                'tab_details_content': 'Designed and sculpted by the renowned Tony Gardner (Alterian Inc.), this Chucky doll represents the pinnacle of collectible replicas. Every stitch of the clothing and every strand of hair has been replicated from the original screen-used puppet. A must-have for the serious horror collector.',
+                'tab_reviews_content': 'No customer reviews yet. Be the first!',
+                'spec_manufacturer': 'Manufacturer',
+                'spec_scale': 'Scale',
+                'spec_height': 'Height',
+                'spec_materials': 'Materials',
+                'spec_features': 'Features',
+                'footer_return_home': 'Return to Home Page'
+            },
+            'es': {
+                'title': 'Muñeco Chucky Ultimate 1:1 - WORLD DOLLS .lat',
+                'select_language_label': 'Idioma:',
+                'nav_home': 'Inicio',
+                'nav_shop': 'Tienda',
+                'nav_contact': 'Contacto',
+                'product_title': 'Muñeco Chucky Ultimate 1:1 Tamaño Real',
+                'stock_status': 'EN STOCK - Listo para envío mundial',
+                'shipping_query_text': 'Envío no incluido en el precio. Consulta el costo de envío a tu país en nuestra página de Facebook.',
+                'processing_time': 'Tiempo de procesamiento del pedido: 5-10 días hábiles.',
+                'final_sales_warning': '⚠️ TODAS LAS VENTAS SON FINALES. Impuestos, aranceles y tasas aduaneras se cobran al recibir el paquete en su país.',
+                'description_p1': 'Esta es la réplica definitiva y precisa a escala 1:1 del muñeco Chucky de Child\'s Play 2, con licencia oficial de Universal Studios y meticulosamente creada por Trick or Treat Studios.',
+                'description_p2': 'El muñeco presenta un cuerpo de espuma detallado sobre un marco de aluminio duradero, lo que permite un posado altamente realista. Viene vestido con el mono y la camisa de Good Guys, y se completa con esculturas de cabeza intercambiables (sonrisa predeterminada, aspecto amenazante alternativo) y un accesorio de "cuchillo" de plástico.',
+                'contact_prompt': 'Para realizar un pedido o cualquier consulta, envíanos un mensaje:',
+                'contact_button_text': 'MENSAJE A WORLD DOLLS .lat',
+                'contact_note': '(Se te proporcionarán las instrucciones de pago y transferencia bancaria una vez que nos contactes).',
+                'tab_details': 'Detalles',
+                'tab_specs': 'Especificaciones',
+                'tab_reviews': 'Reseñas',
+                'tab_details_content': 'Diseñado y esculpido por el reconocido Tony Gardner (Alterian Inc.), este muñeco Chucky representa la cúspide de las réplicas de coleccionista. Cada puntada de la ropa y cada hebra de cabello ha sido replicada del títere original utilizado en pantalla. Una pieza imprescindible para el coleccionista serio de terror.',
+                'tab_reviews_content': 'Aún no hay reseñas de clientes. ¡Sé el primero!',
+                'spec_manufacturer': 'Fabricante',
+                'spec_scale': 'Escala',
+                'spec_height': 'Altura',
+                'spec_materials': 'Materiales',
+                'spec_features': 'Características',
+                'footer_return_home': 'Volver a la Página de Inicio'
+            },
+            'pt': {
+                'title': 'Boneco Chucky Ultimate 1:1 - WORLD DOLLS .lat',
+                'select_language_label': 'Idioma:',
+                'nav_home': 'Início',
+                'nav_shop': 'Loja',
+                'nav_contact': 'Contato',
+                'product_title': 'Boneco Chucky Ultimate 1:1 Tamanho Real',
+                'stock_status': 'EM ESTOQUE - Pronto para Envio Mundial',
+                'shipping_query_text': 'Frete não incluído no preço. Consulte o custo de envio para o seu país em nossa página do Facebook.',
+                'processing_time': 'Tempo de processamento do pedido: 5-10 dias úteis.',
+                'final_sales_warning': '⚠️ TODAS AS VENDAS SÃO FINAIS. Impostos, taxas e alfândega são cobrados na entrega no seu país.',
+                'description_p1': 'Esta é a réplica definitiva e precisa na escala 1:1 do boneco Chucky do filme Brinquedo Assassino 2, oficialmente licenciado pela Universal Studios e meticulosamente trabalhada pela Trick or Treat Studios.',
+                'description_p2': 'O boneco apresenta um corpo detalhado em espuma sobre uma estrutura de alumínio durável, permitindo poses altamente realistas. Ele vem vestido com o macacão e a camisa Good Guys, completo com esculturas de cabeça intercambiáveis (sorriso padrão, aparência ameaçadora alternativa) e um acessório de "faca" de plástico.',
+                'contact_prompt': 'Para fazer um pedido ou para qualquer dúvida, envie-nos uma mensagem:',
+                'contact_button_text': 'MENSAGEM PARA WORLD DOLLS .lat',
+                'contact_note': '(As instruções de pagamento e transferência bancária serão fornecidas assim que você nos contatar).',
+                'tab_details': 'Detalhes',
+                'tab_specs': 'Especificações',
+                'tab_reviews': 'Avaliações',
+                'tab_details_content': 'Projetado e esculpido pelo renomado Tony Gardner (Alterian Inc.), este boneco Chucky representa o auge das réplicas colecionáveis. Cada ponto da roupa e cada fio de cabelo foram replicados do fantoche original usado na tela. Um item obrigatório para o colecionador sério de terror.',
+                'tab_reviews_content': 'Ainda não há avaliações de clientes. Seja o primeiro!',
+                'spec_manufacturer': 'Fabricante',
+                'spec_scale': 'Escala',
+                'spec_height': 'Altura',
+                'spec_materials': 'Materiais',
+                'spec_features': 'Recursos',
+                'footer_return_home': 'Voltar para a Página Inicial'
+            },
+            'de': {
+                'title': 'Ultimate Chucky Puppe 1:1 - WORLD DOLLS .lat',
+                'select_language_label': 'Sprache:',
+                'nav_home': 'Startseite',
+                'nav_shop': 'Shop',
+                'nav_contact': 'Kontakt',
+                'product_title': 'Ultimate Chucky Puppe 1:1 Lebensgröße',
+                'stock_status': 'AUF LAGER - Bereit für den weltweiten Versand',
+                'shipping_query_text': 'Versand nicht im Preis enthalten. Erfragen Sie die Versandkosten für Ihr Land auf unserer Facebook-Seite.',
+                'processing_time': 'Bearbeitungszeit der Bestellung: 5-10 Werktage.',
+                'final_sales_warning': '⚠️ ALLE VERKÄUFE SIND ENDGÜLTIG. Steuern, Zölle und Zollgebühren werden bei Lieferung in Ihrem Land erhoben.',
+                'description_p1': 'Dies ist die definitive, bildschirmgenaue Nachbildung der Chucky-Puppe im Maßstab 1:1 aus Chucky – Die Mörderpuppe 2, offiziell lizenziert von Universal Studios und sorgfältig von Trick or Treat Studios gefertigt.',
+                'description_p2': 'Die Puppe verfügt über einen detaillierten Schaumstoffkörper über einem robusten Aluminiumrahmen, der eine äußerst realistische Posierung ermöglicht. Sie wird in der Good Guys Latzhose und dem Hemd geliefert, komplett mit austauschbaren Kopfskulpturen (Standardlächeln, alternatives bedrohliches Aussehen) und einem Kunststoff-"Messer"-Zubehör.',
+                'contact_prompt': 'Um eine Bestellung aufzugeben oder bei Fragen, senden Sie uns eine Nachricht:',
+                'contact_button_text': 'NACHRICHT AN WORLD DOLLS .lat',
+                'contact_note': '(Die Zahlungs- und Überweisungsanweisungen werden Ihnen nach Kontaktaufnahme zugesandt).',
+                'tab_details': 'Details',
+                'tab_specs': 'Spezifikationen',
+                'tab_reviews': 'Bewertungen',
+                'tab_details_content': 'Entworfen und gefertigt vom renommierten Tony Gardner (Alterian Inc.), stellt diese Chucky-Puppe den Höhepunkt der Sammlerrepliken dar. Jeder Stich der Kleidung und jede Haarsträhne wurde von der original auf dem Bildschirm verwendeten Puppe repliziert. Ein Muss für den ernsthaften Horror-Sammler.',
+                'tab_reviews_content': 'Noch keine Kundenrezensionen. Seien Sie der Erste!',
+                'spec_manufacturer': 'Hersteller',
+                'spec_scale': 'Maßstab',
+                'spec_height': 'Höhe',
+                'spec_materials': 'Materialien',
+                'spec_features': 'Merkmale',
+                'footer_return_home': 'Zurück zur Startseite'
+            },
+            'fr': {
+                'title': 'Poupée Chucky Ultimate 1:1 - WORLD DOLLS .lat',
+                'select_language_label': 'Langue:',
+                'nav_home': 'Accueil',
+                'nav_shop': 'Boutique',
+                'nav_contact': 'Contact',
+                'product_title': 'Poupée Chucky Ultimate 1:1 Taille Réelle',
+                'stock_status': 'EN STOCK - Prêt pour l\'Expédition Mondiale',
+                'shipping_query_text': 'Frais de port non inclus dans le prix. Consultez les frais d\'expédition vers votre pays sur notre page Facebook.',
+                'processing_time': 'Délai de traitement de la commande : 5-10 jours ouvrables.',
+                'final_sales_warning': '⚠️ TOUTES LES VENTES SONT FINALES. Taxes, droits et frais de douane sont perçus à la livraison dans votre pays.',
+                'description_p1': 'Ceci est la réplique définitive et fidèle à l\'écran, à l\'échelle 1:1, de la poupée Chucky du film Jeu d\'enfant 2, officiellement sous licence Universal Studios et méticuleusement conçue par Trick or Treat Studios.',
+                'description_p2': 'La poupée présente un corps en mousse détaillé sur un cadre en aluminium durable, permettant des poses très réalistes. Elle est livrée habillée de la salopette et de la chemise Good Guys, avec des sculptures de tête interchangeables (sourire par défaut, look menaçant alternatif) et un accessoire de "couteau" en plastique.',
+                'contact_prompt': 'Pour passer une commande ou pour toute question, envoyez-nous un message :',
+                'contact_button_text': 'MESSAGE À WORLD DOLLS .lat',
+                'contact_note': '(Les instructions de paiement et de virement bancaire vous seront fournies une fois que vous nous aurez contactés).',
+                'tab_details': 'Détails',
+                'tab_specs': 'Spécifications',
+                'tab_reviews': 'Avis',
+                'tab_details_content': 'Conçue et sculptée par le célèbre Tony Gardner (Alterian Inc.), cette poupée Chucky représente le summum des répliques de collection. Chaque point des vêtements et chaque mèche de cheveux a été répliqué à partir de la marionnette originale utilisée à l\'écran. Un incontournable pour le collectionneur sérieux d\'horreur.',
+                'tab_reviews_content': 'Aucun avis client pour le moment. Soyez le premier !',
+                'spec_manufacturer': 'Fabricant',
+                'spec_scale': 'Échelle',
+                'spec_height': 'Hauteur',
+                'spec_materials': 'Matériaux',
+                'spec_features': 'Caractéristiques',
+                'footer_return_home': 'Retour à la Page d\'Accueil'
+            }
+        };
+
+        // --- 2. LÓGICA DE TRADUCCIÓN ---
+        function applyTranslation(lang) {
+            const currentLang = translations[lang];
+            if (!currentLang) return;
+
+            // Traducir el Título
+            document.querySelector('title').textContent = currentLang['title'];
+
+            // Traducir todos los elementos con data-lang
+            document.querySelectorAll('[data-lang]').forEach(element => {
+                const key = element.getAttribute('data-lang');
+                if (currentLang[key]) {
+                    // Usar innerHTML para el logo y mantener el <span>
+                    if (element.classList.contains('logo')) {
+                        element.innerHTML = 'WORLD DOLLS<span>.lat</span>'; // Se mantiene el formato .lat
+                    } else {
+                        element.textContent = currentLang[key];
+                    }
+                }
+            });
+            
+            localStorage.setItem('dolls_language', lang);
+        }
+        
+        // --- 3. LÓGICA DE GALERÍA (THUMBNAILS) ---
+        function setupGallery() {
+            const mainImage = document.getElementById('main-product-image');
+            const thumbnails = document.querySelectorAll('.thumbnail-img');
+
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Cambiar la imagen principal
+                    mainImage.src = this.getAttribute('data-full-img');
+                    mainImage.alt = this.alt;
+
+                    // Remover la clase 'active' de todas las miniaturas
+                    thumbnails.forEach(t => t.classList.remove('active'));
+
+                    // Añadir la clase 'active' a la miniatura clickeada
+                    this.classList.add('active');
+                });
+            });
+        }
+        
+        // --- 4. LÓGICA DE PESTAÑAS (TABS) ---
+        function setupTabs() {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabName = this.getAttribute('data-tab');
+
+                    // Desactivar todos los botones
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+
+                    // Ocultar todos los contenidos
+                    tabContents.forEach(content => content.style.display = 'none');
+
+                    // Activar el botón clickeado
+                    this.classList.add('active');
+
+                    // Mostrar el contenido correspondiente
+                    document.getElementById(`tab-${tabName}`).style.display = 'block';
+                });
+            });
+        }
+
+        // --- 5. INICIALIZACIÓN Y EVENT LISTENERS ---
+        window.onload = function() {
+            // Lógica de Idioma
+            const savedLang = localStorage.getItem('dolls_language') || 'es'; // Usar 'es' como defecto
+            const switcher = document.getElementById('language-switcher');
+            
+            switcher.value = savedLang;
+            applyTranslation(savedLang);
+
+            switcher.addEventListener('change', (event) => {
+                applyTranslation(event.target.value);
+            });
+            
+            // Inicializar funcionalidades
+            setupGallery();
+            setupTabs();
+        };
+    </script>
+</body>
+</html>
