@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-lang="title">WORLD DOLLS .lat - Ultimate Horror Collectibles</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg-general: #111111;
+            --bg-card: #000000;
+            --text-white: #ffffff;
+            --text-light-gray: #aaaaaa;
+            --accent-color: #f0f0f0;
+            --button-bg: #222222;
+            --button-hover: #333333;
+            --border-color: #333333;
+            --lang-selector-bg: #0d0d0d;
+            --horror-red: #cc0000;
+            --success-color: #5cb85c;
+            --disabled-color: #666666; /* Color para botones deshabilitados */
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Lato', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-general);
+            color: var(--text-white);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* --- HEADER Y NAVEGACIÓN --- */
+        header {
+            background-color: var(--bg-card);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-group {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: var(--text-white);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+        
+        .company-name {
+            font-size: 0.75rem;
+            color: var(--text-light-gray);
+            margin-top: -5px;
+            text-transform: uppercase;
+        }
+
+        header nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        header nav a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--text-white);
+        }
+        
+        /* LANGUAGE SELECTOR */
+        .language-selector {
+            background-color: var(--lang-selector-bg);
+            padding: 5px 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .language-selector label {
+            font-size: 0.9rem;
+            color: var(--text-light-gray);
+        }
+        .language-selector select {
+            background-color: var(--button-bg);
+            color: var(--text-white);
+            border: 1px solid #444;
+            padding: 5px 8px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+
+        /* --- ABOUT US SECTION (CONTENT) --- */
+        .about-section {
+            padding: 4rem 0;
+            background-color: var(--bg-general);
+            flex-grow: 1; /* Para empujar el footer hacia abajo */
+        }
+        
+        .about-section h1 {
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: var(--horror-red);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s;
+        }
+
+        .about-card:hover {
+            box-shadow: 0 0 25px rgba(204, 0, 0, 0.4);
+        }
+
+        .about-card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-white);
+            border-left: 3px solid var(--horror-red);
+            padding-left: 10px;
+        }
+
+        .about-card p {
+            color: var(--text-light-gray);
+            font-size: 1.1rem;
+        }
+
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: var(--bg-card);
+            padding: 2rem 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            color: var(--text-light-gray);
+            text-align: center;
+        }
+
+        footer a {
+            color: var(--text-light-gray);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        footer a:hover {
+            color: var(--text-white);
+        }
+        
+        /* MEDIA QUERIES */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+            .logo-group {
+                 align-items: center;
+            }
+            header nav ul {
+                padding: 0;
+                justify-content: center;
+            }
+            .language-selector {
+                margin-top: 0.5rem;
+            }
+            .about-section h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-group">
+                    <a href="index.html" class="logo">WORLD DOLLS<span>.lat</span></a>
+                    <span class="company-name">World Dolls E.I.R.L.</span>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="index.html" data-lang="nav_home">Home</a></li>
+                        <li><a href="AboutUs.html" data-lang="nav_aboutus">About Us</a></li>
+                    </ul>
+                </nav>
+                <div class="language-selector">
+                    <label data-lang="select_language_label">Language:</label>
+                    <select id="language-switcher">
+                        <option value="en">English</option>
+                        <option value="es">Español</option>
+                        <option value="pt">Português</option>
+                        <option value="de">Deutsch</option>
+                        <option value="fr">Français</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-section">
+            <div class="container">
+                <h1 data-lang="about_main_heading">Nuestra Misión y Legado</h1>
+                
+                <div class="about-content">
+                    
+                    <div class="about-card">
+                        <h2 data-lang="about_mission_heading">Nuestra Misión</h2>
+                        <p data-lang="about_mission_text">WORLD DOLLS .lat nace de una pasión genuina por el cine de terror y el coleccionismo premium. Nuestra misión es simple: traer las réplicas coleccionables de tamaño real (1:1) más auténticas y de mayor calidad de tus películas y personajes favoritos directamente a tu colección. Cada pieza es seleccionada por su fidelidad y acabado.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h2 data-lang="about_license_heading">Enfoque en la Autenticidad: Réplicas 1:1 Oficiales</h2>
+                        <p data-lang="about_license_text">Solo trabajamos con productos **oficialmente licenciados** y fabricantes de renombre. Entendemos que el coleccionista de horror valora la precisión; por eso nos especializamos en figuras 1:1, asegurando que cada detalle, desde el cabello hasta el vestuario, sea fiel a la pantalla. La réplica 1:1 es nuestro estándar de calidad.</p>
+                    </div>
+
+                    <div class="about-card">
+                        <h2 data-lang="about_commitment_heading">Compromiso con la Comunidad</h2>
+                        <p data-lang="about_commitment_text">Somos coleccionistas sirviendo a coleccionistas. Esto significa envíos seguros y asesoramiento especializado en pre-ventas y productos de alto valor. Tu pieza de colección es una inversión, y la tratamos como tal, ofreciendo una experiencia de compra transparente y dedicada al fanático de género.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 WORLD DOLLS .lat. | <a href="index.html" data-lang="footer_return_home">Return to Home Page</a></p>
+        </div>
+    </footer>
+
+   <script>
+    // --- 1. DATOS DE TRADUCCIÓN (ACTUALIZADOS CON TEXTOS DEL ABOUT US) ---
+    const translations = {
+        'en': {
+            // General
+            'title': 'WORLD DOLLS .lat - Ultimate Horror Collectibles',
+            'select_language_label': 'Language:',
+            'nav_home': 'Home',
+            'nav_aboutus': 'About Us',
+            'footer_return_home': 'Return to Home Page',
+            
+            // About Us Page Texts
+            'about_main_heading': 'Our Mission and Legacy',
+            'about_mission_heading': 'Our Mission',
+            'about_mission_text': 'WORLD DOLLS .lat is born from a genuine passion for horror cinema and premium collecting. Our mission is simple: to bring the most authentic and highest quality life-size (1:1) collectible replicas of your favorite movies and characters directly to your collection. Every piece is selected for its screen-accuracy and finish.',
+            'about_license_heading': 'Focus on Authenticity: Official 1:1 Replicas',
+            'about_license_text': 'We only work with **officially licensed** products and reputable manufacturers. We understand that the horror collector values precision; that is why we specialize in 1:1 figures, ensuring that every detail, from the hair to the wardrobe, is faithful to the screen. The 1:1 replica is our quality standard.',
+            'about_commitment_heading': 'Commitment to the Community',
+            'about_commitment_text': 'We are collectors serving collectors. This means secure shipping and specialized advice on pre-sales and high-value products. Your collectible piece is an investment, and we treat it as such, offering a transparent and dedicated shopping experience for the genre fan.'
+        },
+        'es': {
+            // General
+            'title': 'WORLD DOLLS .lat - Coleccionables de Terror Definitivos',
+            'select_language_label': 'Idioma:',
+            'nav_home': 'Inicio',
+            'nav_aboutus': 'Acerca de Nosotros',
+            'footer_return_home': 'Volver a la Página de Inicio',
+            
+            // About Us Page Texts
+            'about_main_heading': 'Nuestra Misión y Legado',
+            'about_mission_heading': 'Nuestra Misión',
+            'about_mission_text': 'WORLD DOLLS .lat nace de una pasión genuina por el cine de terror y el coleccionismo premium. Nuestra misión es simple: traer las réplicas coleccionables de tamaño real (1:1) más auténticas y de mayor calidad de tus películas y personajes favoritos directamente a tu colección. Cada pieza es seleccionada por su fidelidad y acabado.',
+            'about_license_heading': 'Enfoque en la Autenticidad: Réplicas 1:1 Oficiales',
+            'about_license_text': 'Solo trabajamos con productos **oficialmente licenciados** y fabricantes de renombre. Entendemos que el coleccionista de horror valora la precisión; por eso nos especializamos en figuras 1:1, asegurando que cada detalle, desde el cabello hasta el vestuario, sea fiel a la pantalla. La réplica 1:1 es nuestro estándar de calidad.',
+            'about_commitment_heading': 'Compromiso con la Comunidad',
+            'about_commitment_text': 'Somos coleccionistas sirviendo a coleccionistas. Esto significa envíos seguros y asesoramiento especializado en pre-ventas y productos de alto valor. Tu pieza de colección es una inversión, y la tratamos como tal, ofreciendo una experiencia de compra transparente y dedicada al fanático de género.'
+        },
+        'pt': {
+            // General
+            'title': 'WORLD DOLLS .lat - Colecionáveis de Terror Definitivos',
+            'select_language_label': 'Idioma:',
+            'nav_home': 'Início',
+            'nav_aboutus': 'Sobre Nós',
+            'footer_return_home': 'Voltar para a Página Inicial',
+            
+            // About Us Page Texts
+            'about_main_heading': 'Nossa Missão e Legado',
+            'about_mission_heading': 'Nossa Missão',
+            'about_mission_text': 'A WORLD DOLLS .lat nasceu de uma paixão genuína pelo cinema de terror e colecionismo premium. Nossa missão é simples: trazer as réplicas colecionáveis em tamanho real (1:1) mais autênticas e de mais alta qualidade de seus filmes e personagens favoritos diretamente para sua coleção. Cada peça é selecionada por sua fidelidade e acabamento.',
+            'about_license_heading': 'Foco na Autenticidade: Réplicas Oficiais 1:1',
+            'about_license_text': 'Trabalhamos apenas com produtos **oficialmente licenciados** e fabricantes renomados. Entendemos que o colecionador de terror valoriza a precisão; por isso, somos especializados em figuras 1:1, garantindo que cada detalhe, do cabelo ao figurino, seja fiel à tela. A réplica 1:1 é nosso padrão de qualidade.',
+            'about_commitment_heading': 'Compromisso com a Comunidade',
+            'about_commitment_text': 'Somos colecionadores servindo colecionadores. Isso significa envio seguro e aconselhamento especializado em pré-vendas e produtos de alto valor. Sua peça de colecionador é um investimento, e a tratamos como tal, oferecendo uma experiência de compra transparente e dedicada ao fã do gênero.'
+        },
+        'de': {
+            // General
+            'title': 'WORLD DOLLS .lat - Ultimative Horror Sammlerstücke',
+            'select_language_label': 'Sprache:',
+            'nav_home': 'Startseite',
+            'nav_aboutus': 'Über Uns',
+            'footer_return_home': 'Zurück zur Startseite',
+            
+            // About Us Page Texts
+            'about_main_heading': 'Unsere Mission und Erbe',
+            'about_mission_heading': 'Unsere Mission',
+            'about_mission_text': 'WORLD DOLLS .lat entstand aus einer echten Leidenschaft für Horrorkino und Premium-Sammelobjekte. Unsere Mission ist einfach: Wir bringen die authentischsten und hochwertigsten lebensgroßen (1:1) Sammler-Repliken Ihrer Lieblingsfilme und -charaktere direkt in Ihre Sammlung. Jedes Stück wird aufgrund seiner Filmtrouheit und Verarbeitung ausgewählt.',
+            'about_license_heading': 'Fokus auf Authentizität: Offizielle 1:1 Repliken',
+            'about_license_text': 'Wir arbeiten ausschließlich mit **offiziell lizenzierten** Produkten und namhaften Herstellern. Wir verstehen, dass der Horror-Sammler Wert auf Präzision legt; deshalb sind wir auf 1:1-Figuren spezialisiert, um sicherzustellen, dass jedes Detail, von den Haaren bis zur Garderobe, dem Bildschirm treu ist. Die 1:1 Replik ist unser Qualitätsstandard.',
+            'about_commitment_heading': 'Engagement für die Community',
+            'about_commitment_text': 'Wir sind Sammler, die Sammlern dienen. Das bedeutet sicheren Versand und spezialisierte Beratung bei Vorbestellungen und hochwertigen Produkten. Ihr Sammlerstück ist eine Investition, und wir behandeln es auch so, indem wir dem Genrefan ein transparentes und engagiertes Einkaufserlebnis bieten.'
+        },
+        'fr': {
+            // General
+            'title': 'WORLD DOLLS .lat - Objets de Collection d\'Horreur Ultimes',
+            'select_language_label': 'Langue:',
+            'nav_home': 'Accueil',
+            'nav_aboutus': 'À Propos',
+            'footer_return_home': 'Retour à la Page d\'Accueil',
+            
+            // About Us Page Texts
+            'about_main_heading': 'Notre Mission et Héritage',
+            'about_mission_heading': 'Notre Mission',
+            'about_mission_text': 'WORLD DOLLS .lat est née d\'une passion sincère pour le cinéma d\'horreur et la collection haut de gamme. Notre mission est simple : apporter les répliques de collection grandeur nature (1:1) les plus authentiques et de la plus haute qualité de vos films et personnages préférés directement dans votre collection. Chaque pièce est sélectionnée pour sa fidélité à l\'écran et sa finition.',
+            'about_license_heading': 'Accent sur l\'Authenticité : Répliques Officielles 1:1',
+            'about_license_text': 'Nous travaillons uniquement avec des produits **sous licence officielle** et des fabricants renommés. Nous comprenons que le collectionneur d\'horreur valorise la précision; c\'est pourquoi nous nous spécialisons dans les figurines 1:1, garantissant que chaque détail, des cheveux à la garde-robe, est fidèle à l\'écran. La réplique 1:1 est notre standard de qualité.',
+            'about_commitment_heading': 'Engagement envers la Communauté',
+            'about_commitment_text': 'Nous sommes des collectionneurs au service des collectionneurs. Cela signifie une expédition sécurisée et des conseils spécialisés sur les précommandes et les produits de grande valeur. Votre pièce de collection est un investissement, et nous la traitons comme telle, offrant une expérience d\'achat transparente et dédiée aux fans du genre.'
+        }
+    };
+
+    // --- 2. LÓGICA DE TRADUCCIÓN ---
+    function applyTranslation(lang) {
+        const currentLang = translations[lang];
+        if (!currentLang) return;
+
+        // Traducir el Título
+        document.querySelector('title').textContent = currentLang['title'];
+
+        // Traducir todos los elementos con data-lang
+        document.querySelectorAll('[data-lang]').forEach(element => {
+            const key = element.getAttribute('data-lang');
+            if (currentLang[key]) {
+                // Usar textContent o innerHTML si es el logo para mantener el <span>
+                if (element.classList.contains('logo')) {
+                    // El logo se maneja para mantener la estructura HTML interna (<span>.lat</span>)
+                    element.innerHTML = 'WORLD DOLLS<span>.lat</span>'; 
+                } else {
+                    element.textContent = currentLang[key];
+                }
+            }
+        });
+        
+        localStorage.setItem('dolls_language', lang);
+    }
+
+    // --- DETECTOR AUTOMÁTICO DE IDIOMA ---
+    function getBrowserLanguage() {
+        let lang = navigator.language || navigator.userLanguage;
+        lang = lang.substring(0, 2);
+        if (!['en','es','pt','de','fr'].includes(lang)) {
+            lang = 'es';
+        }
+        return lang;
+    }
+
+    // --- 3. INICIALIZACIÓN Y EVENT LISTENERS ---
+    window.onload = function() {
+
+        let savedLang = localStorage.getItem('dolls_language');
+
+        // Si no hay idioma guardado → usar idioma del sistema automáticamente
+        if (!savedLang) {
+            savedLang = getBrowserLanguage();
+            localStorage.setItem('dolls_language', savedLang);
+        }
+
+        const switcher = document.getElementById('language-switcher');
+        switcher.value = savedLang;
+
+        applyTranslation(savedLang);
+
+        switcher.addEventListener('change', (event) => {
+            applyTranslation(event.target.value);
+        });
+    };
+</script>
+</body>
+</html>
