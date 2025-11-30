@@ -3,604 +3,318 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-lang="title">WORLD DOLLS .lat - Ultimate Horror Collectibles</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>World Dolls E.I.R.L - Muñecos Coleccionables Importados</title>
+    <link rel="icon" type="image/png" href="https://www.google.com/s2/favicons?sz=256&domain_url=https%3A%2F%2Fwww.curseofchucky.com%2F">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
+        /* Variables de color (Colores Originales) */
         :root {
-            --bg-general: #111111;
-            --bg-card: #000000;
-            --text-white: #ffffff;
-            --text-light-gray: #aaaaaa;
-            --accent-color: #f0f0f0;
-            --button-bg: #222222;
-            --button-hover: #333333;
-            --border-color: #333333;
-            --lang-selector-bg: #0d0d0d;
-            --horror-red: #cc0000;
-            --success-color: #5cb85c;
-            --disabled-color: #666666; /* Color para botones deshabilitados */
+            --primary-red: #D50000; /* Rojo principal */
+            --dark-navy: #1A237E; /* Azul oscuro para encabezados/footers */
+            --background-light: #F5F5F5; /* Fondo claro */
+            --card-white: #FFFFFF; /* Fondo de tarjetas */
+            --text-dark: #333333; /* Texto oscuro */
+            --facebook-blue: #1877F2;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Lato', sans-serif;
-        }
+        /* Estilos base */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: var(--background-light); color: var(--text-dark); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
 
-        body {
-            background-color: var(--bg-general);
-            color: var(--text-white);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+        /* === 1. HEADER Y BANNER PRINCIPAL === */
+        .header { background-color: var(--dark-navy); color: var(--card-white); padding: 30px 0; text-align: center; margin-bottom: 30px; }
+        .header h1 { font-size: 3em; margin-bottom: 10px; border-bottom: 3px solid var(--primary-red); display: inline-block; padding-bottom: 5px; }
+        .header p { font-size: 1.3em; font-weight: 300; }
+        
+        /* Estilos del logo de Facebook */
+        .facebook-link {
+            display: block;
+            margin-bottom: 15px; 
         }
-
-        .container {
-            width: 90%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        /* --- HEADER Y NAVEGACIÓN --- */
-        header {
-            background-color: var(--bg-card);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-group {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+        .facebook-logo {
+            width: 50px; 
+            height: 50px;
+            border-radius: 50%; 
+            background-color: var(--card-white); /* Fondo blanco para el logo */
+            object-fit: cover;
         }
         
-        .logo {
-            font-size: 2rem;
-            font-family: 'Playfair Display', serif;
-            font-weight: bold;
-            color: var(--text-white);
-            text-decoration: none;
-            letter-spacing: 2px;
+        /* === 2. INFORMACIÓN DE LA EMPRESA Y VALORES === */
+        .company-info { text-align: center; margin-bottom: 40px; }
+        .company-info h2 { color: var(--primary-red); font-size: 2em; margin-bottom: 20px; }
+        .info-grid { display: flex; justify-content: space-around; gap: 20px; flex-wrap: wrap; }
+        .info-card { 
+            background: var(--card-white); 
+            padding: 20px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            flex-basis: calc(33% - 20px);
+            min-width: 250px;
+            border-top: 5px solid var(--dark-navy); 
+            transition: transform 0.3s;
         }
-        
-        .company-name {
-            font-size: 0.75rem;
-            color: var(--text-light-gray);
-            margin-top: -5px;
-            text-transform: uppercase;
-        }
+        .info-card:hover { transform: translateY(-5px); }
+        .info-card i { font-size: 2.5em; color: var(--primary-red); margin-bottom: 15px; }
+        .info-card h4 { color: var(--dark-navy); margin-bottom: 5px; }
 
-        header nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
+        /* === 3. SECCIÓN DE PRODUCTOS (CATÁLOGO) === */
+        .catalog h2 { text-align: center; color: var(--dark-navy); font-size: 2.5em; margin-bottom: 30px; padding-top: 20px; }
+        .product-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 30px; 
         }
-
-        header nav a {
-            color: var(--text-light-gray);
-            text-decoration: none;
-            font-weight: 700;
-            transition: color 0.3s;
-        }
-
-        header nav a:hover {
-            color: var(--text-white);
-        }
-        
-        /* LANGUAGE SELECTOR */
-        .language-selector {
-            background-color: var(--lang-selector-bg);
-            padding: 5px 15px;
-            border-radius: 4px;
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .language-selector label {
-            font-size: 0.9rem;
-            color: var(--text-light-gray);
-        }
-        .language-selector select {
-            background-color: var(--button-bg);
-            color: var(--text-white);
-            border: 1px solid #444;
-            padding: 5px 8px;
-            border-radius: 3px;
-            cursor: pointer;
-        }
-
-
-        /* --- HERO SECTION (BANNER) --- */
-        .hero {
-            position: relative;
-            height: 70vh;
-            background: url('hero-chucky.jpg') no-repeat center center/cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            overflow: hidden;
-            border-bottom: 3px solid var(--horror-red);
-        }
-
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1;
-        }
-
-        .hero-content {
-            z-index: 2;
-        }
-
-        .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            color: var(--text-white);
-            text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
-        }
-
-        .hero p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            color: var(--text-light-gray);
-        }
-
-        .hero-button {
-            display: inline-block;
-            padding: 15px 30px;
-            background-color: var(--horror-red);
-            color: var(--text-white);
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.2s;
-            border: 2px solid var(--text-white);
-        }
-
-        .hero-button:hover {
-            background-color: #ff0000;
-            transform: scale(1.05);
-        }
-
-        /* --- PRODUCT SECTION --- */
-        .products-section {
-            padding: 4rem 0;
-            background-color: var(--bg-general);
-        }
-        
-        .products-section h2 {
-            text-align: center;
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            color: var(--horror-red);
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
         .product-card {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            background: var(--card-white);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
             transition: transform 0.3s, box-shadow 0.3s;
         }
-
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(255, 0, 0, 0.3);
-        }
-
-        .product-image-container {
-            height: 350px;
-            overflow: hidden;
-            border-bottom: 1px solid var(--border-color);
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
         }
 
         .product-card img {
             width: 100%;
-            height: 100%;
+            height: 350px;
             object-fit: cover;
-            transition: transform 0.5s;
+            border-bottom: 1px solid #EEE;
         }
+        .product-info { padding: 20px; }
+        .product-info h3 { color: var(--dark-navy); margin-bottom: 10px; font-size: 1.5em; }
+        .product-info .price { font-size: 1.8em; font-weight: bold; color: var(--primary-red); margin-bottom: 15px; }
 
-        .product-card:hover img {
-            transform: scale(1.05);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .product-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--text-white);
-        }
-
-        .price {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--success-color);
-            margin-bottom: 1rem;
-        }
-        
-        .stock-status {
-            font-size: 0.9rem;
-            color: var(--text-light-gray);
-            margin-bottom: 1rem;
-        }
-        
-        /* Estilos para el botón de compra (o elemento tipo botón) */
-        .action-button {
+        .btn-view {
             display: inline-block;
+            background-color: var(--primary-red);
+            color: white; 
             padding: 10px 20px;
+            border-radius: 5px;
             text-decoration: none;
-            border-radius: 4px;
             font-weight: bold;
-            width: 100%;
-            margin-top: 10px;
+            transition: background-color 0.2s;
+        }
+        .btn-view:hover { background-color: #A00000; }
+
+        /* NUEVO: QUIENES SOMOS (Añadido) */
+        .about-us {
+            margin-top: 50px;
+            padding: 25px;
+            background-color: #E3F2FD; /* Azul claro, limpio */
+            border: 2px solid var(--dark-navy);
+            border-radius: 8px;
             text-align: center;
         }
-
-        /* Botón clickeable (Ver detalles) */
-        a.action-button.buy-button {
-            background-color: var(--button-bg);
-            color: var(--text-white);
-            border: 1px solid var(--border-color);
-            transition: background-color 0.3s;
+        .about-us h2 {
+            color: var(--dark-navy);
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            border-bottom: 3px solid var(--primary-red);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .about-us h2 i {
+            color: var(--primary-red);
+            margin-right: 10px;
+        }
+        .about-us p {
+            font-size: 1.0em;
+            line-height: 1.6;
+            margin-bottom: 10px;
+            color: var(--text-dark);
         }
 
-        a.action-button.buy-button:hover {
-            background-color: var(--button-hover);
+        /* === 4. FOOTER === */
+        .footer { 
+            background-color: var(--dark-navy); 
+            color: var(--card-white); 
+            text-align: center; 
+            padding: 20px 0; 
+            margin-top: 50px;
         }
+        .footer p { margin-bottom: 5px; font-size: 0.9em; }
+        .footer a { color: var(--facebook-blue); text-decoration: none; font-weight: bold; }
+        .footer a:hover { text-decoration: underline; }
 
-        /* Elemento no clickeable (Pre-sale, Sold Out, Soon More) */
-        span.action-button {
-            background-color: var(--disabled-color);
-            color: var(--text-white);
-            border: 1px solid var(--border-color);
-            cursor: not-allowed;
-            opacity: 0.8;
-        }
-
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: var(--bg-card);
-            padding: 2rem 0;
-            border-top: 1px solid var(--border-color);
-            margin-top: auto;
-            color: var(--text-light-gray);
-            text-align: center;
-        }
-
-        footer a {
-            color: var(--text-light-gray);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        footer a:hover {
-            color: var(--text-white);
-        }
-        
-        /* MEDIA QUERIES */
+        /* Responsividad */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-                text-align: center;
-            }
-            .logo-group {
-                 align-items: center;
-            }
-            header nav ul {
-                padding: 0;
-                justify-content: center;
-            }
-            .language-selector {
-                margin-top: 0.5rem;
-            }
-            .hero {
-                height: 50vh;
-            }
-            .hero h1 {
-                font-size: 3rem;
-            }
-            .hero p {
-                font-size: 1.2rem;
-            }
-            .products-section {
-                padding: 2rem 0;
-            }
+            .header h1 { font-size: 2em; }
+            .info-card { flex-basis: 100%; }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo-group">
-                    <a href="index.html" class="logo">WORLD DOLLS<span>.lat</span></a>
-                    <span class="company-name">World Dolls E.I.R.L.</span>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="index.html" data-lang="nav_home">Home</a></li>
-                        <li><a href="/AboutUs.html" data-lang="nav_aboutus">About Us</a></li>
-                    </ul>
-                </nav>
-                <div class="language-selector">
-                    <label data-lang="select_language_label">Language:</label>
-                    <select id="language-switcher">
-                        <option value="en">English</option>
-                        <option value="es">Español</option>
-                        <option value="pt">Português</option>
-                        <option value="de">Deutsch</option>
-                        <option value="fr">Français</option>
-                    </select>
-                </div>
+
+<div class="header">
+    <div class="container">
+        <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank" class="facebook-link">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/500px-Facebook_Logo_%282019%29.png" alt="Facebook World Dolls E.I.R.L" class="facebook-logo">
+        </a>
+        <h1>WORLD DOLLS E.I.R.L</h1>
+        <p>Muñecos Coleccionables Importados - La Calidad que Buscas, 100% Original.</p>
+    </div>
+</div>
+
+<div class="container">
+    
+    <section class="company-info">
+        <h2>Somos una Empresa Registrada en Perú (RUC: 20602972594)</h2>
+        <div class="info-grid">
+            
+            <div class="info-card">
+                <i class="fa-solid fa-plane-departure"></i>
+                <h4>Productos Importados</h4>
+                <p>Traemos los modelos más exclusivos directamente para ti.</p>
             </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-lock"></i>
+                <h4>Pago Seguro</h4>
+                <p>Aceptamos tarjetas, Yape, Plin y transferencias bancarias con total seguridad.</p>
+            </div>
+
+            <div class="info-card">
+                <i class="fa-solid fa-truck-fast"></i>
+                <h4>Envíos Globales</h4>
+                <p>Despachamos a todo el Perú y México de forma rápida y garantizada.</p>
+            </div>
+
         </div>
-    </header>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 data-lang="hero_title">Official 1:1 Replica & Collectibles Store</h1>
-                <p data-lang="hero_subtitle">Life-Size Replicas, Officially Licensed</p>
-                <a href="#products" class="hero-button" data-lang="hero_button">View In-Stock Products</a>
-            </div>
-        </section>
+    <section class="catalog">
+        <h2>🔥 Nuestro Catálogo Exclusivo</h2>
+        
+        <div class="product-grid">
 
-        <section id="products" class="products-section">
-            <div class="container">
-                <h2 data-lang="products_heading">Current Inventory</h2>
-                <div class="product-grid">
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="Trick2Ultimate/61BHeuKszcL._AC_SL1400_.jpg" alt="Ultimate Chucky Doll 1:1 Life Size">
-                        </div>
-                        <div class="product-info">
-                            <h3 data-lang="p1_title">Ultimate Chucky Doll 1:1</h3>
-                            <div class="price">$569.99 USD</div>
-                            <p class="stock-status" data-lang="p1_status">IN-STOCK - Ready to Ship</p>
-                            <a href="chucky-doll.html" class="action-button buy-button" data-lang="p1_button">VIEW DETAILS</a>
-                        </div>
-                    </div>
-
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://m.media-amazon.com/images/I/71eJjYM25jL.jpg" alt="Billy The Puppet 1:1 Life Size Replica">
-                        </div>
-                        <div class="product-info">
-                            <h3 data-lang="p2_title">Billy The Puppet (SAW)</h3>
-                            <div class="price">$439.99 USD</div>
-                            <p class="stock-status" style="color: var(--horror-red);" data-lang="p2_status">PRE-ORDER / Consult availability</p>
-                            <span class="action-button" data-lang="p2_presale">PRE-SALE</span>
-                        </div>
-                    </div>
-                    
-                    <div class="product-card">
-                        <div class="product-image-container">
-                            <img src="https://img.freepik.com/premium-photo/abstract-luxury-blur-dark-grey-black-gradient-background_1008660-2938.jpg?semt=ais_hybrid&w=740&q=80" alt="">
-                        </div>
-                        <div class="product-info">
-                            <h3 data-lang="p3_title">Soon More</h3>
-                            <span class="action-button" style="background-color: var(--horror-red); opacity: 1; margin-top: 40px; font-size: 1.1rem;" data-lang="p3_soon_more">SOON MORE</span>
-                            </div>
-                    </div>
-
+            <div class="product-card">
+                <img src="https://i.ibb.co/B5MGcwBG/s-l1600-4.webp" alt="Muñeca Living Dead Dolls Ghost Face Zombie">
+                <div class="product-info">
+                    <h3>Living Dead Dolls: Ghost Face (Edición Zombie)</h3>
+                    <p class="price">S/180</p> <a href="scream.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
                 </div>
             </div>
-        </section>
-    </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 WORLD DOLLS .lat. | <a href="index.html" data-lang="footer_return_home">Return to Home Page</a></p>
+            <div class="product-card">
+                <img src="https://i.ibb.co/prwqkS4V/581931258-820285300632078-8929327017533263676-n.jpg" alt="Muñeco Chucky Modelo Niño Bueno">
+                <div class="product-info">
+                    <h3>Muñeco Chucky – Niño Bueno</h3>
+                    <p class="price">S/200</p>
+                    <a href="chucky200soles.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://http2.mlstatic.com/D_NQ_NP_691950-MLM84267645707_052025-O.webp" alt="Muñeco Chucky 65cm con caja">
+                <div class="product-info">
+                    <h3>Chucky 65cm con Caja y Sonido</h3>
+                    <p class="price">S/300</p>
+                    <a href="chucky300.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/mr8Tc2d9/526094740-122233422254035304-7915553502777521306-n-1.jpg" alt="Muñeco Chucky Custom 75 cm Articulado">
+                <div class="product-info">
+                    <h3>Chucky Custom – 75 cm Articulado</h3>
+                    <p class="price">S/300</p>
+                    <a href="chuckycustom.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://i.ibb.co/Xr4q36Wd/581795992-816460671014541-7608502972462487237-n.jpg" alt="Muñeco Chucky I Can Talk">
+                <div class="product-info">
+                    <h3>Chucky "I Can Talk" Original</h3>
+                    <p class="price">S/450</p>
+                    <a href="chuckytalk.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/fYrtYbz9/586262112-822848160375792-7275120386024091384-n.jpg" alt="Muñeco Chucky Réplica 75cm con 5 frases en español">
+                <div class="product-info">
+                    <h3>Chucky Réplica (75cm, 5 Frases ES)</h3>
+                    <p class="price">S/500</p>
+                    <a href="chuckyrep.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/8LwfGG3w/Captura-de-pantalla-2025-11-15-170805.png" alt="Muñeca Annabelle de Trick or Treat Studios">
+                <div class="product-info">
+                    <h3>Muñeca Annabelle – Clásica Importada</h3>
+                    <p class="price">S/500</p>
+                    <a href="anabelle500.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <img src="https://i.ibb.co/TBchs2dF/s-l1600-1.webp" alt="Muñeco Chucky Good Guy, cuerpo de tela, tamaño real">
+                <div class="product-info">
+                    <h3>Chucky Good Guy Tamaño Real (Tela)</h3>
+                    <p class="price">S/600</p>
+                    <a href="chuckytela.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.ibb.co/wNVX72xN/571211517-1885324252066686-3843894896020997305-n.jpg" alt="Muñeco Glen Glenda de Semilla de Chucky">
+                <div class="product-info">
+                    <h3>Glen/Glenda – El Hijo de Chucky</h3>
+                    <p class="price">S/700</p>
+                    <a href="glen.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://i.postimg.cc/nh5rkSkC/Captura-de-pantalla-2025-11-15-171031.png" alt="Muñeco Chucky Trick or Treat Studios Premium">
+                <div class="product-info">
+                    <h3>Chucky Premium 1:1 – TOTS</h3>
+                    <p class="price">S/1500</p>
+                    <a href="chuckyto.html" class="btn-view">
+                        <i class="fa-solid fa-eye"></i> Ver Detalles
+                    </a>
+                </div>
+            </div>
+
         </div>
-    </footer>
+    </section>
 
-   <script>
-    // --- 1. DATOS DE TRADUCCIÓN ---
-    const translations = {
-        // ... (Tu objeto translations permanece sin cambios)
-        'en': {
-            'title': 'WORLD DOLLS .lat - Ultimate Horror Collectibles',
-            'select_language_label': 'Language:',
-            'nav_home': 'Home',
-            'nav_aboutus': 'About Us',
-            'hero_title': 'Official 1:1 Replica & Collectibles Store',
-            'hero_subtitle': 'Life-Size Replicas, Officially Licensed',
-            'hero_button': 'View In-Stock Products',
-            'products_heading': 'Current Inventory',
-            'p1_title': 'Ultimate Chucky Doll 1:1',
-            'p1_status': 'IN-STOCK - Ready to Ship',
-            'p1_button': 'VIEW DETAILS',
-            'p2_title': 'Billy The Puppet (SAW)',
-            'p2_status': 'PRE-ORDER / Consult availability',
-            'p2_presale': 'PRE-SALE', 
-            'p3_title': '',
-            'p3_soon_more': 'SOON MORE', // Mensaje en el botón
-            'footer_return_home': 'Return to Home Page'
-        },
-        'es': {
-            'title': 'WORLD DOLLS .lat - Coleccionables de Terror Definitivos',
-            'select_language_label': 'Idioma:',
-            'nav_home': 'Inicio',
-            'nav_aboutus': 'Acerca de Nosotros',
-            'hero_title': 'Tienda Oficial de Réplicas 1:1 y Coleccionables',
-            'hero_subtitle': 'Réplicas de Tamaño Real, Licenciadas Oficialmente',
-            'hero_button': 'Ver Productos en Stock',
-            'products_heading': 'Inventario Actual',
-            'p1_title': 'Muñeco Chucky Ultimate 1:1',
-            'p1_status': 'EN STOCK - Listo para Envío',
-            'p1_button': 'VER DETALLES',
-            'p2_title': 'Billy El Títere (SAW)',
-            'p2_status': 'PRE-VENTA / Consultar disponibilidad',
-            'p2_presale': 'PRE-VENTA',
-            'p3_title': 'Máscara Ghostface (Premium)',
-            'p3_soon_more': '', // Mensaje en el botón
-            'footer_return_home': 'Volver a la Página de Inicio'
-        },
-        'pt': {
-            'title': 'WORLD DOLLS .lat - Colecionáveis de Terror Definitivos',
-            'select_language_label': 'Idioma:',
-            'nav_home': 'Início',
-            'nav_aboutus': 'Sobre Nós',
-            'hero_title': 'Loja Oficial de Réplicas 1:1 e Colecionáveis',
-            'hero_subtitle': 'Réplicas em Tamanho Real, Licenciadas Oficialmente',
-            'hero_button': 'Ver Produtos em Estoque',
-            'products_heading': 'Inventário Atual',
-            'p1_title': 'Boneco Chucky Ultimate 1:1',
-            'p1_status': 'EM ESTOQUE - Pronto para Envio',
-            'p1_button': 'VER DETALHES',
-            'p2_title': 'Billy, O Boneco (SAW)',
-            'p2_status': 'PRÉ-VENDA / Consultar disponibilidade',
-            'p2_presale': 'PRÉ-VENDA',
-            'p3_title': 'Máscara Ghostface (Premium)',
-            'p3_soon_more': '',
-            'footer_return_home': 'Voltar para a Página Inicial'
-        },
-        'de': {
-            'title': 'WORLD DOLLS .lat - Ultimative Horror Sammlerstücke',
-            'select_language_label': 'Sprache:',
-            'nav_home': 'Startseite',
-            'nav_aboutus': 'Über Uns',
-            'hero_title': 'Offizieller Shop für 1:1 Repliken & Sammlerstücke',
-            'hero_subtitle': 'Lebensgroße Repliken, Offiziell Lizenziert',
-            'hero_button': 'Lagernde Produkte Anzeigen',
-            'products_heading': 'Aktueller Bestand',
-            'p1_title': 'Ultimate Chucky Puppe 1:1',
-            'p1_status': 'AUF LAGER - Versandbereit',
-            'p1_button': 'DETAILS ANZEIGEN',
-            'p2_title': 'Billy Die Puppe (SAW)',
-            'p2_status': 'VORBESTELLUNG / Verfügbarkeit erfragen',
-            'p2_presale': 'VORVERKAUF',
-            'p3_title': 'Ghostface Maske (Premium)',
-            'p3_soon_more': '',
-            'footer_return_home': 'Zurück zur Startseite'
-        },
-        'fr': {
-            'title': 'WORLD DOLLS .lat - Objets de Collection d\'Horreur Ultimes',
-            'select_language_label': 'Langue:',
-            'nav_home': 'Accueil',
-            'nav_aboutus': 'À Propos',
-            'hero_title': 'Boutique Officielle de Répliques 1:1 et Objets de Collection',
-            'hero_subtitle': 'Répliques Taille Réelle, Sous Licence Officielle',
-            'hero_button': 'Voir les Produits en Stock',
-            'products_heading': 'Inventaire Actuel',
-            'p1_title': 'Poupée Chucky Ultimate 1:1',
-            'p1_status': 'EN STOCK - Prêt à Expédier',
-            'p1_button': 'VOIR DÉTAILS',
-            'p2_title': 'Billy la Marionnette (SAW)',
-            'p2_status': 'PRÉ-COMMANDE / Consulter la disponibilité',
-            'p2_presale': 'PRÉ-VENTE',
-            'p3_title': 'Masque Ghostface (Premium)',
-            'p3_soon_more': '',
-            'footer_return_home': 'Retour à la Page d\'Accueil'
-        }
-    };
+    <div class="about-us">
+        <h2><i class="fa-solid fa-gem"></i> ¿Quiénes Somos? World Dolls E.I.R.L.</h2>
+        <p>En <b>World Dolls E.I.R.L.</b>, somos coleccionistas apasionados y dedicados a traer a Perú las figuras de horror más icónicas y difíciles de encontrar, como Chucky, Annabelle y Living Dead Dolls.</p>
+        <p>Nuestra misión es garantizar que recibas productos <b>100% originales</b> y sellados, directamente importados de fabricantes premium. Respaldados por nuestro RUC <b>20602972594</b>, ofrecemos una compra transparente, segura y con envío garantizado a nivel nacional. ¡Tu colección, nuestra prioridad!</p>
+    </div>
+    </div>
 
-    // --- 2. LÓGICA DE TRADUCCIÓN ---
-    function applyTranslation(lang) {
-        const currentLang = translations[lang];
-        if (!currentLang) return;
+<footer class="footer">
+    <p>World Dolls E.I.R.L. | RUC: 20602972594 | Todos los derechos reservados.</p>
+    <p>Siguenos en <a href="https://www.facebook.com/WorldDollsPeru/" target="_blank"><i class="fa-brands fa-facebook"></i> Facebook Oficial</a></p>
+</footer>
 
-        // Traducir el Título
-        document.querySelector('title').textContent = currentLang['title'];
-
-        // Traducir todos los elementos con data-lang
-        document.querySelectorAll('[data-lang]').forEach(element => {
-            const key = element.getAttribute('data-lang');
-            if (currentLang[key]) {
-                // Usar textContent o innerHTML si es el logo para mantener el <span>
-                if (element.classList.contains('logo')) {
-                    // El logo se maneja para mantener la estructura HTML interna (<span>.lat</span>)
-                    element.innerHTML = 'WORLD DOLLS<span>.lat</span>'; 
-                } else {
-                    element.textContent = currentLang[key];
-                }
-            }
-        });
-        
-        localStorage.setItem('dolls_language', lang);
-    }
-
-    // --- DETECTOR AUTOMÁTICO DE IDIOMA AÑADIDO ---
-    function getBrowserLanguage() {
-        let lang = navigator.language || navigator.userLanguage;
-
-        // Solo tomamos los primeros 2 caracteres
-        lang = lang.substring(0, 2);
-
-        // Si el idioma no existe en el diccionario, usar español
-        if (!['en','es','pt','de','fr'].includes(lang)) {
-            lang = 'es';
-        }
-        return lang;
-    }
-
-    // --- 3. INICIALIZACIÓN Y EVENT LISTENERS (MODIFICADO) ---
-    window.onload = function() {
-
-        let savedLang = localStorage.getItem('dolls_language');
-
-        // Si no hay idioma guardado → usar idioma del sistema automáticamente (LÓGICA AÑADIDA)
-        if (!savedLang) {
-            savedLang = getBrowserLanguage();
-            localStorage.setItem('dolls_language', savedLang);
-        }
-
-        const switcher = document.getElementById('language-switcher');
-        switcher.value = savedLang;
-
-        applyTranslation(savedLang);
-
-        switcher.addEventListener('change', (event) => {
-            applyTranslation(event.target.value);
-        });
-        
-        // Lógica de Scroll suave para el botón de Hero (SIN CAMBIOS)
-        document.querySelector('.hero-button').addEventListener('click', function(e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    };
-</script>
 </body>
 </html>
