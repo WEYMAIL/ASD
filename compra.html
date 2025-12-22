@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WORLD DOLLS E.I.R.L.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* Encabezado de la Empresa */
+        .company-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .company-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin: 0;
+            color: #ffffff;
+        }
+        .company-ruc {
+            font-size: 0.9rem;
+            color: #888;
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Tarjeta del Producto */
+        .card {
+            background-color: #161616;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 15px rgba(255, 221, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .image-container {
+            width: 100%;
+            height: 400px;
+            background-color: #000;
+            overflow: hidden;
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            padding: 30px 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 0;
+            color: #ff3e3e;
+            text-transform: uppercase;
+        }
+
+        .product-info {
+            color: #aaa;
+            font-size: 1.1rem;
+            margin: 10px 0;
+        }
+
+        .price {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 20px 0;
+        }
+
+        /* Botón Estilo BMC */
+        .buy-button {
+            background-color: #FFDD00;
+            color: #000000;
+            border: 2px solid #000;
+            padding: 15px 40px;
+            font-size: 1.25rem;
+            font-weight: 700;
+            border-radius: 12px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 0 #b39b00;
+        }
+
+        .buy-button:hover {
+            background-color: #ffe633;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 0 #b39b00;
+        }
+
+        .buy-button:active {
+            transform: translateY(2px);
+            box-shadow: 0 0 0 #b39b00;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="company-header">
+        <h2 class="company-name">WORLD DOLLS E.I.R.L.</h2>
+        <span class="company-ruc">RUC: 20602972594</span>
+    </header>
+
+    <div class="card">
+        <div class="image-container">
+            <img src="https://i.ibb.co/Wp3YdBJg/Captura-de-pantalla-2025-12-21-204807.png" alt="Chucky 80 cm">
+        </div>
+        
+        <div class="content">
+            <h1>Chucky</h1>
+            <p class="product-info">Coleccionable de 80 cm</p>
+            <div class="price">74 USD</div>
+            
+            <button class="buy-button" onclick="triggerPayment()">
+                <span>✅️</span> Comprar
+            </button>
+        </div>
+    </div>
+
+    <script data-name="BMC-Widget" 
+            data-cfasync="false" 
+            src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js" 
+            data-id="luisnunez" 
+            data-description="Support me on Buy me a coffee!" 
+            data-message="" 
+            data-color="#FFDD00" 
+            data-position="Right" 
+            data-x_margin="18" 
+            data-y_margin="18">
+    </script>
+
+    <script>
+        function triggerPayment() {
+            // Intenta abrir el widget flotante automáticamente
+            const bmcWidget = document.getElementById('bmc-wbtn');
+            if (bmcWidget) {
+                bmcWidget.click();
+            } else {
+                // Si el widget no cargó por algún motivo, redirige a la web
+                window.open("https://www.buymeacoffee.com/luisnunez", "_blank");
+            }
+        }
+    </script>
+
+</body>
+</html>
