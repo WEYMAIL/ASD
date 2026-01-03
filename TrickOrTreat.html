@@ -14,6 +14,7 @@
             --background-light: #F2F2F2;
             --card-white: #FFFFFF;
             --price-color: #00A859;
+            --trust-blue: #2B5797;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
@@ -32,44 +33,53 @@
 
         .product-image-main { width: 100%; border-radius: 4px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         
-        /* Caja de Precio Limpia */
         .price-box { border-bottom: 1px solid #eee; margin-bottom: 25px; padding-bottom: 25px; }
-        .price-box .currency-label { font-size: 0.9em; color: #888; display: block; }
         .price { font-size: 3em; font-weight: 800; color: #111; display: block; line-height: 1; }
         .mxn-price { font-size: 1.4em; color: var(--price-color); font-weight: 600; margin-top: 5px; display: block; }
 
-        /* Botón de Pago Estilo Carrito */
         .purchase-container { position: relative; margin: 30px 0; max-width: 300px; }
         .click-layer { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; cursor: pointer; }
 
-        /* Características */
-        .product-details h2 { font-size: 1.1em; color: var(--dark-navy); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; }
-        .product-details ul { list-style: none; }
-        .product-details ul li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95em; color: #444; display: flex; align-items: center; }
+        .product-details h2 { font-size: 1.1em; color: var(--dark-navy); text-transform: uppercase; margin-bottom: 15px; letter-spacing: 1px; border-bottom: 2px solid #f0f0f0; padding-bottom: 5px; }
+        .product-details ul { list-style: none; margin-bottom: 30px; }
+        .product-details ul li { padding: 10px 0; border-bottom: 1px solid #f0f0f0; font-size: 0.95em; display: flex; align-items: center; }
         .product-details ul li i { color: var(--primary-red); margin-right: 12px; width: 18px; text-align: center; }
 
-        /* Galería de Imágenes */
-        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 40px; border-top: 2px solid #f0f0f0; padding-top: 30px; }
-        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; transition: 0.3s; cursor: pointer; border: 1px solid #ddd; }
-        .gallery-grid img:hover { filter: brightness(0.8); }
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 50px; }
+        .gallery-grid img { width: 100%; height: 250px; object-fit: cover; border-radius: 4px; border: 1px solid #ddd; }
 
-        /* Información Corporativa */
-        .store-info { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .info-card { padding: 15px; border-radius: 6px; font-size: 0.85em; line-height: 1.6; }
-        .info-card-yellow { background: #fffdf0; border: 1px solid #f1e0a0; }
-        .info-card-green { background: #f0fff4; border: 1px solid #c6f6d5; }
-        .info-card strong { display: block; color: var(--dark-navy); margin-bottom: 4px; }
+        /* SECCIÓN DE CONFIANZA / VERITRADE */
+        .trust-section { background: #f8f9fa; border: 1px solid #e9ecef; border-radius: 8px; padding: 25px; margin-top: 20px; }
+        .trust-header { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; color: var(--trust-blue); }
+        .trust-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
+        
+        .trust-link { 
+            display: flex; 
+            align-items: center; 
+            gap: 15px; 
+            background: white; 
+            padding: 15px; 
+            border-radius: 6px; 
+            text-decoration: none; 
+            color: #444; 
+            border: 1px solid #ddd; 
+            transition: 0.3s;
+            font-size: 0.85em;
+        }
+        .trust-link:hover { border-color: var(--trust-blue); box-shadow: 0 4px 12px rgba(0,0,0,0.05); transform: translateY(-2px); }
+        .trust-link i { font-size: 1.5em; color: var(--trust-blue); }
+        .trust-link strong { color: var(--trust-blue); display: block; margin-bottom: 2px; }
 
         @media (max-width: 768px) {
             .product-content { flex-direction: column; }
-            .store-info { grid-template-columns: 1fr; }
+            .trust-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver al Catálogo de Colección</a>
+    <a href="index.html" class="btn-back"><i class="fa-solid fa-arrow-left"></i> Volver al Catálogo</a>
 
     <div class="product-header">
         <h1>Chucky Good Guys 1:1 Scale – Trick or Treat Studios</h1>
@@ -82,49 +92,69 @@
 
         <div class="details-col">
             <div class="price-box">
-                <span class="currency-label">Precio de Importación</span>
                 <span class="price">$450.00 USD</span>
                 <span class="mxn-price">8,000.00 MXN</span>
                 
                 <div class="purchase-container">
                     <div class="click-layer" onclick="buyNow(event)"></div>
-                    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="luisnunez" data-color="#FF5F5F" data-emoji="🛒" data-font="Lato" data-text="COMPRAR" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
+                    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="luisnunez" data-color="#FF5F5F" data-emoji="🛒" data-font="Lato" data-text="AGREGAR AL CARRITO" data-outline-color="#000000" data-font-color="#ffffff" data-coffee-color="#FFDD00" ></script>
                 </div>
-                <p style="font-size: 0.8em; color: #999;"><i class="fa-solid fa-lock"></i> Pago procesado por cifrado SSL seguro</p>
+                <p style="font-size: 0.8em; color: #999;"><i class="fa-solid fa-shield-halved"></i> Transacción segura vía Buy Me a Coffee</p>
             </div>
             
             <div class="product-details">
-                <h2>Especificaciones Técnicas</h2>
+                <h2>Características</h2>
                 <ul>
-                    <li><i class="fa-solid fa-check-double"></i> Licencia oficial – Trick Or Treat Studios</li>
-                    <li><i class="fa-solid fa-ruler-vertical"></i> Réplica 1:1 (Tamaño real - 80 cm)</li>
-                    <li><i class="fa-solid fa-film"></i> Basado en el diseño original de la película</li>
-                    <li><i class="fa-solid fa-layer-group"></i> Cuerpo de espuma de alta densidad (Duradero y firme)</li>
-                    <li><i class="fa-solid fa-up-down-left-right"></i> Totalmente articulado para exhibición</li>
+                    <li><i class="fa-solid fa-medal"></i> Licencia oficial – Trick Or Treat Studios</li>
+                    <li><i class="fa-solid fa-ruler"></i> Réplica 1:1 (Tamaño real - 80 cm)</li>
+                    <li><i class="fa-solid fa-clapperboard"></i> Basado en el diseño original de la película</li>
+                    <li><i class="fa-solid fa-dna"></i> Cuerpo de espuma de alta densidad (Duradero)</li>
+                    <li><i class="fa-solid fa-child-reaching"></i> Totalmente articulado</li>
                 </ul>
-            </div>
-
-            <div class="store-info">
-                <div class="info-card info-card-yellow">
-                    <strong>WORLD DOLLS E.I.R.L</strong>
-                    RUC: 20602972594<br>
-                    Distribución oficial de coleccionables.
-                </div>
-                <div class="info-card info-card-green">
-                    <strong>LOGÍSTICA Y ENVÍO</strong>
-                    Despacho certificado Perú - México.<br>
-                    Entrega vía DHL Express.
-                </div>
             </div>
         </div>
     </div>
 
-    <div class="product-details"><h2>Galería de Detalles</h2></div>
+    <div class="product-details"><h2>Galería de Detalles Reales</h2></div>
     <div class="gallery-grid">
-        <img src="https://i.ibb.co/rGVcDY69/581929843-820279870632621-439585207133847452-n.jpg" alt="Detalle 1" onclick="window.open(this.src)">
-        <img src="https://i.ibb.co/Sw6yJj4f/581806896-820280057299269-7072990556654651253-n.jpg" alt="Detalle 2" onclick="window.open(this.src)">
-        <img src="https://i.ibb.co/4w2JhR32/582850707-820279857299259-5540136297307312291-n.jpg" alt="Detalle 3" onclick="window.open(this.src)">
-        <img src="https://i.ibb.co/jkJQrxF6/583732003-820279890632619-3933220429939704365-n.jpg" alt="Detalle 4" onclick="window.open(this.src)">
+        <img src="https://i.ibb.co/rGVcDY69/581929843-820279870632621-439585207133847452-n.jpg" alt="Detalle 1">
+        <img src="https://i.ibb.co/Sw6yJj4f/581806896-820280057299269-7072990556654651253-n.jpg" alt="Detalle 2">
+        <img src="https://i.ibb.co/4w2JhR32/582850707-820279857299259-5540136297307312291-n.jpg" alt="Detalle 3">
+        <img src="https://i.ibb.co/jkJQrxF6/583732003-820279890632619-3933220429939704365-n.jpg" alt="Detalle 4">
+    </div>
+
+    <div class="trust-section">
+        <div class="trust-header">
+            <i class="fa-solid fa-building-circle-check"></i>
+            <h3>Transparencia Corporativa y Registro Legal</h3>
+        </div>
+        <p style="font-size: 0.9em; color: #666; margin-bottom: 20px;">Para su seguridad, valide nuestra legalidad y registros de importación en los siguientes portales institucionales:</p>
+        
+        <div class="trust-grid">
+            <a href="https://www.veritradecorp.com/es/peru/importaciones-y-exportaciones-world-dolls-eirl/ruc-20602972594" target="_blank" class="trust-link">
+                <i class="fa-solid fa-ship"></i>
+                <div>
+                    <strong>Veritrade Comercio Exterior</strong>
+                    Ver historial de importaciones oficiales.
+                </div>
+            </a>
+
+            <a href="https://www.universidadperu.com/empresas/world-dolls.php" target="_blank" class="trust-link">
+                <i class="fa-solid fa-file-invoice"></i>
+                <div>
+                    <strong>Directorio Empresarial</strong>
+                    Consulta ficha RUC 20602972594.
+                </div>
+            </a>
+
+            <a href="https://www.datosperu.org/comercio-exterior-de-world-dolls-eirl-20602972594-en-la-partida-3926.php" target="_blank" class="trust-link">
+                <i class="fa-solid fa-box-open"></i>
+                <div>
+                    <strong>DatosPerú</strong>
+                    Registros de partida arancelaria 3926.
+                </div>
+            </a>
+        </div>
     </div>
 </div>
 
@@ -132,10 +162,10 @@
     function buyNow(e) {
         e.preventDefault();
         const url = "https://www.buymeacoffee.com/luisnunez/e/485673";
-        const w = 500; const h = 700;
+        const w = 500; const h = 750;
         const left = (screen.width / 2) - (w / 2);
         const top = (screen.height / 2) - (h / 2);
-        window.open(url, "bmc-popup", `width=${w},height=${h},top=${top},left=${left},menubar=no,status=no,location=no`);
+        window.open(url, "bmc-popup", `width=${w},height=${h},top=${top},left=${left},scrollbars=yes`);
     }
 </script>
 
